@@ -4,5 +4,5 @@ class Bean < ApplicationRecord
   validates :price, presence: true
   validates :image, presence: true
   has_many :bean_categories
-  has_many :categories, through: :beans_categories
+  has_many :categories, through: :bean_categories
 end

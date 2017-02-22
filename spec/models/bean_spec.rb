@@ -57,5 +57,17 @@ describe Bean, type: :model do
       end
     end
   end
+  describe 'relationships' do
+    it 'has many categories' do
+      category = Category.create(name:'coffee')
+      category2 = Category.create(name:'tasty')
+      bean = category.beans.create(title: "Ethiopian Wazzala",
+                         description: "Light roasted Yirgacheffe",
+                         price: 17,
+                         image: "wazzala.jpg")
+      bean.categories << category2
+      expect(bean).to respond_to(:categories)
+      expect(bean.categories.count).to eq 2
+    end
+  end
 end
-
