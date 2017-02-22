@@ -43,12 +43,12 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'rspec-rails'
-  gem 'pry'
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'rails_best_practices'
-  gem 'shoulda'
-  gem 'shoulda-matchers'
+  # gem 'pry'
+  # gem 'better_errors'
+  # gem 'binding_of_caller'
+  # gem 'rails_best_practices'
+  # gem 'shoulda'
+  # gem 'shoulda-matchers'
 end
 
 group :development do
