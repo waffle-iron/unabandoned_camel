@@ -1,8 +1,23 @@
-<div>
+<!-- <div>
   <% @beans.each do |bean|%>
   <%= bean.title%>
   <%= bean.description%>
   <%= bean.price%>
   <%= bean.image%>
 <% end %>
+</div>
+
+ -->
+
+<div class='row'>
+  <% @beans.each do |bean| %>
+    <div class="col-md-4">
+      <img src='https://robohash.org/<%= bean.title %>'</img>
+      <h3><%= bean.title %></h3>
+      <p><%= bean.description %></p>
+      <p><%= bean.price %></p>
+      <p><%= bean.image %></p>
+    </div>
+  <% end %>
+
 </div>
