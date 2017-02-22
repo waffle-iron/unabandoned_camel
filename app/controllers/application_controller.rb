@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  def index
-    
+ def dashboard
+   render :dashboard
   end
 end
