@@ -1,11 +1,18 @@
-<div class='row'>
-  <% @beans.each do |bean| %>
-    <div class="col-md-4">
-      <img src= "<%= bean.image %>"<%= bean.title %>'</img>
-      <h3>Name: <%= bean.title %></h3>
-      <p>Description: <%= bean.description %></p>
-      <p>Price: <%= bean.price %></p>
-    </div>
-  <% end %>
 
+
+
+<div class="row">
+<% @beans.each do |bean| %>
+  <div class="col-sm-4 col-md-3">
+    <div class="thumbnail">
+      <img src="..." alt="...">
+      <div class="caption">
+        <h3>Name: <%= bean.title %></h3>
+        <p>Description: <%= bean.description %></p>
+        <p>Price: <%= bean.price %></p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
+  </div>
+  <% end %>
 </div>
