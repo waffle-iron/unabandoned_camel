@@ -3,4 +3,6 @@ class Bean < ApplicationRecord
   validates :description, presence: true
   validates :price, presence: true
   validates :image, presence: true
+  has_many :bean_categories
+  has_many :categories, through: :bean_categories
 end

@@ -1,0 +1,9 @@
+<h1>Category Show Page</h1>
+
+<ul>
+  <% @category.beans.each do |bean| %>
+    <li><%= bean.title %></li>
+    <li><%= bean.description %></li>
+    <li><%= bean.price %></li>
+  <% end %>
+</ul>

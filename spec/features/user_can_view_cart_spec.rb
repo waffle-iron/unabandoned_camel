@@ -12,6 +12,6 @@ RSpec.feature "When a user visits the cart index page" do
     
     visit cart_index_path
 
-    #expect()
+    expect()
   end
   end
