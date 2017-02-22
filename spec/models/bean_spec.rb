@@ -1,5 +1,61 @@
 require 'rails_helper'
 
-RSpec.describe Bean, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Bean, type: :model do
+  describe "validations" do
+    context "invalid attributes" do
+      it "is invalid without a unique title" do
+        bean = Bean.create(title: "Ethiopian Wazzala",
+                           description: "Light roasted Yirgacheffe",
+                           price: 17,
+                           image: "wazzala.jpg")
+        bean2 = Bean.new(title: "Ethiopian Wazzala",
+                         description: "Light roasted Yirgacheffe",
+                         price: 17,
+                         image: "wazzala.jpg")
+
+        expect(bean2).to be_invalid
+      end
+
+      it "is invalid without a title" do
+        bean = Bean.new(description: "Light roasted Yirgacheffe",
+                        price: 17,
+                        image: "wazzala.jpg")
+
+        expect(bean).to be_invalid
+      end
+
+      it "is invalid without a description" do
+        bean = Bean.new(title: "Ethiopian Wazzala",
+                        price: 17,
+                        image: "wazzala.jpg")
+
+        expect(bean).to be_invalid
+      end
+
+      it "is invalid without a price" do
+        bean = Bean.create(title: "Ethiopian Wazzala",
+                           description: "Light roasted Yirgacheffe",
+                           image: "wazzala.jpg")
+        expect(bean).to be_invalid
+      end
+
+      it "is invalid without an image" do
+        bean = Bean.create(title: "Ethiopian Wazzala",
+                           description: "Light roasted Yirgacheffe",
+                           price: 17)
+        expect(bean).to be_invalid
+      end
+    end
+
+    context "valid attributes" do
+      it "is valid with a unique title, description, price, and image" do
+        bean = Bean.create(title: "Ethiopian Wazzala",
+                           description: "Light roasted Yirgacheffe",
+                           price: 17,
+                           image: "wazzala.jpg")
+        expect(bean).to be_valid
+      end
+    end
+  end
 end
+
