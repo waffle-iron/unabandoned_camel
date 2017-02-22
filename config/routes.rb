@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root to: "application#dashboard"
 
   resources :beans, only: [ :index ]
+  resources :categories, only: [ :show ]
 end
