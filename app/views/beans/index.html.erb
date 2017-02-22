@@ -12,11 +12,10 @@
 <div class='row'>
   <% @beans.each do |bean| %>
     <div class="col-md-4">
-      <img src='https://robohash.org/<%= bean.title %>'</img>
-      <h3><%= bean.title %></h3>
-      <p><%= bean.description %></p>
-      <p><%= bean.price %></p>
-      <p><%= bean.image %></p>
+      <img src= "<%= bean.image %>"<%= bean.title %>'</img>
+      <h3>Name: <%= bean.title %></h3>
+      <p>Description: <%= bean.description %></p>
+      <p>Price: <%= bean.price %></p>
     </div>
   <% end %>
 
