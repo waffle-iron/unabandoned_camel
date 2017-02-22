@@ -7,18 +7,22 @@ feature "Guest visits item index" do
 
     visit beans_path
 
-    expect(page).to have_content("Ethiopian Sidama")
-    expect(page).to have_content("Good coffee")
-    expect(page).to have_content(14)
-    expect(page).to have_content("test")
+    within(".row div:nth-child(1)") do
+      expect(page).to have_content("Ethiopian Sidama")
+      expect(page).to have_content("Good coffee")
+      expect(page).to have_content(14)
+      expect(page).to have_content("test")
 
-    expect(page).to have_content("Kenyan Thimu")
-    expect(page).to have_content("Great coffee")
-    expect(page).to have_content(15)
-    expect(page).to have_content("test")
+    end
+
+    within(".row div:nth-child(2)") do
+      expect(page).to have_content("Kenyan Thimu")
+      expect(page).to have_content("Great coffee")
+      expect(page).to have_content(15)
+      expect(page).to have_content("test")
+    end
 
     expect(Bean.count).to eq(2)
-
 
   end
 end
