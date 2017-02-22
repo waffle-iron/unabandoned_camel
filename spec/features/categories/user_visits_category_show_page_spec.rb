@@ -7,13 +7,13 @@ feature 'user visits category show page' do
                        description: "Light roasted Yirgacheffe",
                        price: 17,
                        image: "wazzala.jpg")
-    category.beans.create(title: "Ethiopian Wazzala",
-                       description: "Light roasted Yirgacheffe",
+    category.beans.create(title: "Columbian Wazzala",
+                       description: "Medium roasted Yirgacheffe",
                        price: 17,
-                       image: "wazzala.jpg")
+                       image: "coffee.jpg")
 
     visit category_path(category)
 
-    expect(current_path).to eq ('/categories/coffee')
+    expect(current_path).to eq ('/coffee')
   end
 end
