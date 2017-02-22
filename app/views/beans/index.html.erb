@@ -15,7 +15,10 @@
       <img src= "<%= bean.image %>"<%= bean.title %>'</img>
       <h3>Name: <%= bean.title %></h3>
       <p>Description: <%= bean.description %></p>
-      <p>Price: <%= bean.price %></p>
+      <p>Price: <%= bean.price %></p> 
+      <%= button_to "Add Item", cart_index_path(bean_id: bean.id),  class: "btn btn_danger"%>
+      <br>
+      <br>
     </div>
   <% end %>
 

@@ -43,6 +43,8 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
   # gem 'pry'
   # gem 'better_errors'
   # gem 'binding_of_caller'
@@ -59,3 +61,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+# Jonathan's machine needs this gem to run rails console
+gem 'rb-readline'
