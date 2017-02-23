@@ -12,8 +12,7 @@ describe "user creates new account" do
     fill_in "user[password]", with: "password"
     fill_in "user[password_confirmation]", with: "password"
 
-    click_on "Submit New Account"
-
+    expect { click_on "Submit New Account"}.to change(User, :count).by(1)
     expect(current_path).to eq("/dashboard")
     expect(page).to have_content("Logged in as #{User.last.email}")
     expect(page).to have_content("bob@aol.com")
@@ -21,4 +20,3 @@ describe "user creates new account" do
     expect(page).not_to have_link("Login")
   end
 end
-

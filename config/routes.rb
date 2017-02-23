@@ -4,9 +4,17 @@ Rails.application.routes.draw do
 
   resources :beans, only: [ :index, :show ]
 
-
   resources :cart
 
+  resources :users, only: [:new, :create]
+
+  resources :sessions, only: [:destroy]
+
+  get '/login', to: 'sessions#new'
+
+  get '/dashboard', to: 'users#show'
+
   get '/:category_name', to: 'categories#show', as: 'category'
+
 
 end
