@@ -1,6 +1,3 @@
-
-
-
 <div class="row">
 <% @beans.each do |bean| %>
   <div class="col-sm-4 col-md-3">
@@ -10,7 +7,7 @@
         <h3>Name: <%= bean.title %></h3>
         <p>Description: <%= bean.description %></p>
         <p>Price: <%= bean.price %></p>
-        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+        <p>   <%= button_to "Add Item", cart_index_path(bean_id: bean.id),  class: "btn btn_danger"%></p>
       </div>
     </div>
   </div>

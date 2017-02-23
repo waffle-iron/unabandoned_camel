@@ -3,5 +3,10 @@ Rails.application.routes.draw do
   root to: "application#dashboard"
 
   resources :beans, only: [ :index ]
+
+
+  resources :cart
+
   get '/:category_name', to: 'categories#show', as: 'category'
+
 end
