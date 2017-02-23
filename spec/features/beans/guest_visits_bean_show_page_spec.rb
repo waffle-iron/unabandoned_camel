@@ -17,4 +17,14 @@ require 'rails_helper'
       end
       # expect(page).to have_content(bean.image)
     end
+
+    scenario 'guest can add item to cart' do
+      bean = create(:bean)
+
+      visit bean_path(bean)
+
+      click_button("Add Item")
+
+      expect(page).to have_content("1 #{bean.title} added to cart")
+    end
   end
