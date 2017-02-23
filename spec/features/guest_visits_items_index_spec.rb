@@ -7,7 +7,7 @@ feature "Guest visits item index" do
 
     visit beans_path
 
-      all('.caption').first do
+      within all('.caption').first do
       expect(page).to have_content("Ethiopian Sidama")
       expect(page).to have_content("Good coffee")
       expect(page).to have_content(14)
@@ -15,11 +15,11 @@ feature "Guest visits item index" do
 
     end
 
-      all('.caption').last do
+     within all('.caption').last do
       expect(page).to have_content("Kenyan Thimu")
       expect(page).to have_content("Great coffee")
       expect(page).to have_content(15)
-      expect(page).to have_content("test")
+
     end
 
     expect(Bean.count).to eq(2)
