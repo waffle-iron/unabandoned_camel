@@ -1,25 +1,25 @@
 require 'rails_helper'
 
-feature "Guest visits item index" do
+xfeature "Guest visits item index" do
   scenario "guest can see all items" do
-    item1 = Bean.create(title: "Ethiopian Sidama", description: "Good coffee", price: 14, image: "test_image")
-    item2 = Bean.create(title: "Kenyan Thimu", description: "Great coffee", price: 15, image: "test_image_2")
-
+    item = create(:bean)
+    item1 = create(:bean)
+    
     visit beans_path
 
-      within all('.caption').first do
-      expect(page).to have_content("Ethiopian Sidama")
-      expect(page).to have_content("Good coffee")
-      expect(page).to have_content(14)
-
+    within(".row div:nth-child(1)") do
+      expect(page).to have_content(item.title)
+      #expect(page).to have_content(item.image)
+      expect(page).to have_content(item.price)
+      expect(page).to have_content(item.description)
 
     end
 
-     within all('.caption').last do
-      expect(page).to have_content("Kenyan Thimu")
-      expect(page).to have_content("Great coffee")
-      expect(page).to have_content(15)
-
+    within(".row div:nth-child(2)") do
+      expect(page).to have_content(item1.title)
+      #expect(page).to have_content(item1.image)
+      expect(page).to have_content(item1.price)
+      expect(page).to have_content(item1.description)
     end
 
     expect(Bean.count).to eq(2)
