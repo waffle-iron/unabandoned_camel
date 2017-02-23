@@ -5,11 +5,6 @@ feature "Guest visits item index" do
     item = create(:bean)
     item1 = create(:bean)
 
-
-    #item1 = Bean.create(title: "Ethiopian Sidama", description: "Good coffee", price: 14, image: "test_image")
-    #item2 = Bean.create(title: "Kenyan Thimu", description: "Great coffee", price: 15, image: "test_image_2")
-
-
     visit beans_path
 
     within all(".thumbnail").first do

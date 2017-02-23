@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222143805) do
+
+ActiveRecord::Schema.define(version: 20170222183551) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +37,8 @@ ActiveRecord::Schema.define(version: 20170222143805) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "slug",       null: false
+    t.index ["slug"], name: "index_categories_on_slug", unique: true, using: :btree
   end
 
   add_foreign_key "bean_categories", "beans"
