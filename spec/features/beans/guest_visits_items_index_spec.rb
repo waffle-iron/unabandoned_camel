@@ -1,16 +1,13 @@
 require 'rails_helper'
 
-xfeature "Guest visits item index" do
+feature "Guest visits item index" do
   scenario "guest can see all items" do
     item = create(:bean)
     item1 = create(:bean)
-    #item1 = Bean.create(title: "Ethiopian Sidama", description: "Good coffee", price: 14, image: "test_image")
-    #item2 = Bean.create(title: "Kenyan Thimu", description: "Great coffee", price: 15, image: "test_image_2")
-    
 
     visit beans_path
 
-    within(".row div:nth-child(1)") do
+    within all(".thumbnail").first do
       expect(page).to have_content(item.title)
       #expect(page).to have_content(item.image)
       expect(page).to have_content(item.price)
@@ -18,7 +15,7 @@ xfeature "Guest visits item index" do
 
     end
 
-    within(".row div:nth-child(2)") do
+    within all(".thumbnail").last do
       expect(page).to have_content(item1.title)
       #expect(page).to have_content(item1.image)
       expect(page).to have_content(item1.price)
