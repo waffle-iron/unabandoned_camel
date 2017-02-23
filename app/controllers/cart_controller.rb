@@ -16,4 +16,7 @@ include ActionView::Helpers::TextHelper
     @bean = Bean.all
   end
 
+  def delete
+  end
+
 end
