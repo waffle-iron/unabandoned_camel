@@ -7,15 +7,15 @@ feature "Guest visits item index" do
 
     visit beans_path
 
-    within(".row div:nth-child(1)") do
+      all('.caption').first do
       expect(page).to have_content("Ethiopian Sidama")
       expect(page).to have_content("Good coffee")
       expect(page).to have_content(14)
-      expect(page).to have_content("test")
+
 
     end
 
-    within(".row div:nth-child(2)") do
+      all('.caption').last do
       expect(page).to have_content("Kenyan Thimu")
       expect(page).to have_content("Great coffee")
       expect(page).to have_content(15)
