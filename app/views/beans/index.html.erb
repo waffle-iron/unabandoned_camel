@@ -1,18 +1,3 @@
-
-
-<<<<<<< HEAD
-<div class='row'>
-  <% @beans.each do |bean| %>
-    <div class="col-md-4">
-      <img src= "<%= bean.image %>"<%= bean.title %>'</img>
-      <h3>Name: <%= bean.title %></h3>
-      <p>Description: <%= bean.description %></p>
-      <p>Price: <%= bean.price %></p> 
-      <%= button_to "Add Item", cart_index_path(bean_id: bean.id),  class: "btn btn_danger"%>
-      <br>
-      <br>
-=======
-
 <div class="row">
 <% @beans.each do |bean| %>
   <div class="col-sm-4 col-md-3">
@@ -22,9 +7,8 @@
         <h3>Name: <%= bean.title %></h3>
         <p>Description: <%= bean.description %></p>
         <p>Price: <%= bean.price %></p>
-        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+        <p>   <%= button_to "Add Item", cart_index_path(bean_id: bean.id),  class: "btn btn_danger"%></p>
       </div>
->>>>>>> 4baaa272c65f51fa956c38a552b8bb031276ccb0
     </div>
   </div>
   <% end %>

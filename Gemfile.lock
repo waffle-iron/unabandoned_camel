@@ -203,12 +203,9 @@ DEPENDENCIES
   byebug
   capybara
   coffee-rails (~> 4.2)
-<<<<<<< HEAD
   database_cleaner
   factory_girl_rails
-=======
   friendly_id (~> 5.1.0)
->>>>>>> 4baaa272c65f51fa956c38a552b8bb031276ccb0
   jbuilder (~> 2.5)
   jquery-rails
   launchy

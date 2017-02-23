@@ -12,6 +12,8 @@ include ActionView::Helpers::TextHelper
   end
 
   def index
+    #byebug
+    @bean = Bean.all
   end
 
 end
