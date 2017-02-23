@@ -1,0 +1,15 @@
+<h2>Coffee Categories</h2>
+
+<div class="row">
+<% @categories.each do |category| %>
+  <div class="col-sm-4 col-md-3">
+    <div class="thumbnail">
+      <img src="..." alt="...">
+      <div class="caption">
+        <h3><%= category.name %></h3>
+        <p><%= button_to "Shop Now", category_path(category),  class: "btn btn_danger", method: 'get' %></p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
