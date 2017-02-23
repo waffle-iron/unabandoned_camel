@@ -19,9 +19,6 @@ class Cart
   end
 
   def total_price
-    # total = []
-    # contents.each {|id, quantity| total << (Bean.find(id).price * quantity)}
-    # total.reduce(:+)
     total = contents.map {|id, quantity|(Bean.find(id).price * quantity)}
     total.reduce(:+)
   end

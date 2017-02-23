@@ -16,7 +16,13 @@ include ActionView::Helpers::TextHelper
     @bean = Bean.all
   end
 
-  def delete
+  def destroy
+    # byebug
+    bean = Bean.find(params[:id])
+    @cart.contents.delete(bean.id.to_s)
+
+    flash[:success] = "Successfully removed #{view_context.link_to bean.title, bean_path(bean)} from your cart."
+    redirect_to cart_index_path
   end
 
 end

@@ -12,7 +12,13 @@
 
 
   <% flash.each do |type, message| %>
-    <%= content_tag :div, message, class:type %>
+    <% if type == "success" %>
+    <%= content_tag :div, sanitize(message), class:"alert-success" %>
+    <% elsif type == "danger" %>
+    <%= content_tag :div, sanitize(message), class:"alert-danger" %>
+    <% else %>
+    <%= content_tag :div, sanitize(message), class:"type" %> %>
+    <% end %>
   <% end %>
 
 
