@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20170223224351) do
     t.string   "image"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "region_id"
+    t.index ["region_id"], name: "index_beans_on_region_id", using: :btree
   end
 
   create_table "categories", force: :cascade do |t|
@@ -37,6 +39,22 @@ ActiveRecord::Schema.define(version: 20170223224351) do
     t.datetime "updated_at", null: false
     t.string   "slug",       null: false
     t.index ["slug"], name: "index_categories_on_slug", unique: true, using: :btree
+  end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+  end
+
+  create_table "regions", force: :cascade do |t|
+    t.string "title"
   end
 
   create_table "users", force: :cascade do |t|
@@ -49,4 +67,5 @@ ActiveRecord::Schema.define(version: 20170223224351) do
 
   add_foreign_key "bean_categories", "beans"
   add_foreign_key "bean_categories", "categories"
+  add_foreign_key "beans", "regions"
 end
