@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :beans, only: [ :index, :show ]
 
+  resources :categories, only: [:index]
+  
   resources :cart
 
   resources :users, only: [:new, :create]
