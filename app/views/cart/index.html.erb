@@ -22,3 +22,10 @@
 <div id="total">
   <p> Total: $<%= @cart.total_price %></p>
 </div>
+<div id="checkout">
+  <% if session[:user_id] == nil %>
+    <p><%= link_to "Login or Create Account to Checkout", '/login' %>
+  <% else %>
+
+  <% end %>
+</div>
