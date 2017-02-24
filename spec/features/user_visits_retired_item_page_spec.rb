@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "user visits item show page" do
   describe "user sees item retired" do
     it "they see 'Item Retired' link" do
-      bean = Bean.create(title:"Dark Roast", description:"5 stars", price:"5", image:"Retired", status: 0)
+      bean = Bean.create(title:"Dark Roast", description:"5 stars", price:"5", image:"Retired", status: 1)
       user = User.create(email:"Jonathan@gmail.com", password:"pass")
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
