@@ -9,7 +9,7 @@ class Category < ApplicationRecord
 
   private
 
-  def slug
+   def slug
     self.slug = name.downcase.gsub(/[^a-z1-9]+/, '-').chomp('-')
   end
 end

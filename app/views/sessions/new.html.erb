@@ -1,0 +1,28 @@
+
+<div class="container">
+  <div class="jumbotron">
+    <div class="row">
+      <div class ="col-md-7">
+        <h2 align=center>Login</h2></br>
+          <div class="caption" align=center>
+            <%= form_for :session, url: login_path do |f|  %>
+             <%= f.label :email %></br>
+             <%= f.email_field :email %></br>
+             <%= f.label :password %></br>
+             <%= f.password_field :password %></br>
+             <%= f.submit "Login" %></br>
+            <% end %></br>
+          </div></br>
+   <p align=center><a class="btn btn-success btn-lg" href="/users/new" role="button">Create Account</a></p>
+   <p align=center><a class="btn btn-success btn-lg" href="/beans" role="button">Continue as Guest</a></p>
+
+    </div>
+
+
+
+      <img src="http://www.stanscoffee.com/wp-content/uploads/2014/11/coffee_bag.jpg" alt="coffee bag">
+
+
+</div>
+  </div>
+</div>
