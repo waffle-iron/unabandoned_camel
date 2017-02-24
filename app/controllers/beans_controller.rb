@@ -7,5 +7,5 @@ class BeansController < ApplicationController
   def show
     @bean = Bean.find(params[:id])
   end
-
+    
 end

@@ -5,4 +5,15 @@ class Bean < ApplicationRecord
   validates :image, presence: true
   has_many :bean_categories
   has_many :categories, through: :bean_categories
+
+#Bean Status
+#Active = 0
+#Retired = 1
+#Coming Soon = 2
+
+
+  # def active
+  #   @bean == 1
+  # end
+
 end
