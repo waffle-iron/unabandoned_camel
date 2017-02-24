@@ -71,6 +71,11 @@
             <li><a href="#">Separated link</a></li>
           </ul>
         </li>
+        <% if session[:user_id] == nil %>
+          <li><a href="/login">Login</a></li>
+        <% else %>
+          <li><%= link_to "Logout", '/logout', method: :delete %></li>
+        <% end %>
         <li><a href="/cart">Cart</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
