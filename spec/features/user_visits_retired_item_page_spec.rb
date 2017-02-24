@@ -9,11 +9,13 @@ describe "user visits item show page" do
 
       visit bean_path(bean)
 
-      expect(page).to have_content("Dark Roast")
-      expect(page).to have_content("5 stars")
-      expect(page).to have_content("5")
+      within (".jumbotron") do
+        expect(page).to have_content("Dark Roast")
+        expect(page).to have_content("5 stars")
+        expect(page).to have_content("5")
       
-      expect(page).to have_content("Item Retired")
+        expect(page).to have_content("Item Retired")
+      end
     end
   end
 end
