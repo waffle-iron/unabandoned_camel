@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 describe ' when guest visits cart index page' do
   it "user can remove item from cart" do
     bean = Bean.create(title:"Dark Roast", description:"good", price:1, image:"123")
