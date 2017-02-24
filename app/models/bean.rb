@@ -6,6 +6,11 @@ class Bean < ApplicationRecord
   has_many :bean_categories
   has_many :categories, through: :bean_categories
 
+#Bean Status
+#Active = 0
+#Retired = 1
+#Coming Soon = 2
+
 
   # def active
   #   @bean == 1
