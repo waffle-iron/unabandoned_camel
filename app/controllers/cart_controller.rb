@@ -12,12 +12,10 @@ include ActionView::Helpers::TextHelper
   end
 
   def index
-    #byebug
     @bean = Bean.all
   end
 
   def destroy
-    # byebug
     bean = Bean.find(params[:id])
     @cart.contents.delete(bean.id.to_s)
 
@@ -27,7 +25,7 @@ include ActionView::Helpers::TextHelper
 
   def update
     @cart.contents[params[:id]] = params[:update].to_i
-    redirect_to cart_index_path            
+    redirect_to cart_index_path
   end
 
 end
