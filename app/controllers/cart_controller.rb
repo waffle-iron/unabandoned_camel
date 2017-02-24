@@ -25,4 +25,9 @@ include ActionView::Helpers::TextHelper
     redirect_to cart_index_path
   end
 
+  def update
+    @cart.contents[params[:id]] = params[:update].to_i
+    redirect_to cart_index_path            
+  end
+
 end
