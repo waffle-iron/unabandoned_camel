@@ -8,13 +8,18 @@
         <h3>Name: <%= @bean.find(id).title %></h3>
         <p>Description: <%= @bean.find(id).description %></p>
         <p>Price: <%= @bean.find(id).price %></p>
-        <p> Quantity: <%= quantity %>
+        <p> Quantity: <%= quantity %></p>
+        <%= form_tag(cart_path(id), method: :put) do%>
+          <%= text_field_tag 'update'%>
+          <%= submit_tag 'Update Cart' %>
+        <% end %>
+        <p><%= link_to "Remove", cart_path(id), method: :delete %></p>
       </div>
     </div>
   </div>
   <% end %>
 </div>
 
-<div class="total">
+<div id="total">
   <p> Total: <%= @cart.total_price %></p>
 </div>

@@ -16,7 +16,7 @@ RSpec.feature "When a user visits the cart index page" do
       expect(page).to have_content("Arabica")
       expect(page).to have_content("good")
       #Need to image test
-      within(".total") do
+      within("#total") do
         expect(page).to have_content(1)
       end
     end

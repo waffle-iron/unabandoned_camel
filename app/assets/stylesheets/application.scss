@@ -17,3 +17,11 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.alert-success{
+      text-color: green
+}
+
+.alert-danger{
+      text-color: red
+}
