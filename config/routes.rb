@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:destroy]
 
   get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
 
   get '/dashboard', to: 'users#show'
 

@@ -1,2 +1,27 @@
 
 <%= link_to "Create Account", new_user_path %>
+<div class="container">
+  <div class="jumbotron">
+    <div class="row">
+      <div class ="col-md-7">
+        <h2 align=center>Login</h2>
+          <div class="thumbnail">
+            <%= form_for :session, url: login_path do |f|  %>
+             <%= f.label :email %>
+             <%= f.email_field :email %>
+             <%= f.label :password %>
+             <%= f.password_field :password %>
+             <%= f.submit "Login" %>
+            <% end %>
+          </div>
+   <p align=center><a class="btn btn-success btn-lg" href="/beans" role="button">Login</a></p>
+    </div>
+
+
+
+      <img src="http://www.stanscoffee.com/wp-content/uploads/2014/11/coffee_bag.jpg" alt="coffee bag">
+
+
+</div>
+  </div>
+</div>
