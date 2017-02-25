@@ -11,11 +11,11 @@
   </tr>
     <% @orders.each do |order| %>
       <tr>
-        <td><%= order.id %></td>
-        <td><%= order.item_count %></td>
-        <td><%= order.date %></td>
-        <td>$<%= order.total_price %></td>
-        <td><%= button_to 'View Order', order_path(order), method: :get %></td>
+        <td id='order-id'><%= order.id %></td>
+        <td id='order-item-count'><%= order.item_count %></td>
+        <td id='order-date'><%= order.date %></td>
+        <td id='order-total'>$<%= order.total_price %></td>
+        <td id='view-order-button'><%= button_to 'View Order', order_path(order), method: :get %></td>
       </tr>
     <% end %>
 </table>
