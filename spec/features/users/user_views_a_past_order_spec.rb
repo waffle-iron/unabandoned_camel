@@ -17,18 +17,39 @@ feature 'user views all past orders' do
 
     expect(current_path).to eq order_path(order)
 
-    within('#order-table') do
+    within all('#item-link').first do
       expect(page).to have_link("#{bean1.title}")
+    end
+
+    within all('#item-link').last do
       expect(page).to have_link("#{bean2.title}")
+    end
+
+    within all('#item-quantity').first do
       expect(page).to have_content("3")
+    end
+
+    within all('#item-quantity').last do
       expect(page).to have_content("2")
-      expect(page).to have_content("$#{bean2.subtotal(2)}")
+    end
+
+    within all('#item-subtotal').first do
       expect(page).to have_content("$#{bean1.subtotal(3)}")
     end
 
-    within('#order_info') do
+    within all('#item-subtotal').last do
+      expect(page).to have_content("$#{bean2.subtotal(2)}")
+    end
+
+    within('#order-total') do
       expect(page).to have_content(order.total_price)
+    end
+
+    within('#order-status') do
       expect(page).to have_content(order.status)
+    end
+
+    within('#order-created-date') do
       expect(page).to have_content(order.date)
     end
 
@@ -36,7 +57,7 @@ feature 'user views all past orders' do
 
     visit order_path(order)
 
-    within('#order_info') do
+    within('#order-updated-date') do
       expect(page).to have_content("Order Updated to #{order.status} at #{order.update_time}")
     end
 
@@ -44,7 +65,7 @@ feature 'user views all past orders' do
 
     visit order_path(order)
 
-    within('#order_info') do
+    within('#order-updated-date') do
       expect(page).to have_content("Order Updated to #{order.status} at #{order.update_time}")
     end
 

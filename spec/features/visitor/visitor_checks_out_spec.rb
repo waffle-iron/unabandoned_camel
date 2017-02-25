@@ -23,13 +23,24 @@ feature 'visitor check-out' do
     expect(current_path).to eq('/orders')
     expect(page).to have_content('Order was successfully placed')
 
-    within('#order-table') do
-      expect(page).to have_content('coffee')
+    within('#item-link') do
+      expect(page).to have_link('coffee')
+    end
+
+    within('#item-quantity') do
       expect(page).to have_content('1')
     end
 
-    within('#order_info') do
-      expect(page).to have_content('1')
+    within('#item-subtotal') do
+      expect(page).to have_content('$1')
+    end
+
+    within('#order-total') do
+      expect(page).to have_content('Total: $1')
+    end
+
+    within('#order-created-date') do
+      expect(page).to have_content("Order Sent: #{Order.last.date}")
     end
 
   end
