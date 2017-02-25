@@ -29,7 +29,9 @@ ActiveRecord::Schema.define(version: 20170225181228) do
     t.string   "image"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.integer  "region_id"
     t.integer  "status",      default: 0
+    t.index ["region_id"], name: "index_beans_on_region_id", using: :btree
   end
 
   create_table "categories", force: :cascade do |t|
@@ -48,6 +50,7 @@ ActiveRecord::Schema.define(version: 20170225181228) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
+
   end
 
   create_table "users", force: :cascade do |t|
@@ -62,4 +65,5 @@ ActiveRecord::Schema.define(version: 20170225181228) do
   add_foreign_key "bean_categories", "beans"
   add_foreign_key "bean_categories", "categories"
   add_foreign_key "orders", "users"
+
 end
