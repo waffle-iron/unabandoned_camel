@@ -72,9 +72,9 @@
           </ul>
         </li>
         <% if session[:user_id] == nil %>
-          <li><a href="/login">Login</a></li>
+          <li><a href="/login" class='login'>Login</a></li>
         <% else %>
-          <li><%= link_to "Logout", '/logout', method: :delete %></li>
+          <li class='logout'><%= link_to "Logout", '/logout', method: :delete %></li>
         <% end %>
         <li><a href="/cart">Cart</a></li>
       </ul>
