@@ -24,8 +24,8 @@
 </div>
 <div id="checkout">
   <% if session[:user_id] == nil %>
-    <p><%= link_to "Login or Create Account to Checkout", '/login' %>
+    <p><%= button_to "Login or Register to Checkout", '/login', method: :get %>
   <% else %>
-
+    <%= button_to "Checkout", '/orders' %>
   <% end %>
 </div>

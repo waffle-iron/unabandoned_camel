@@ -9,7 +9,7 @@ describe 'when a visitor has items in the cart' do
       visit cart_index_path
 
       within("#checkout") do
-        expect(page).to have_content("Login or Create Account to Checkout")
+        expect(page).to have_button("Login or Register to Checkout")
       end
     end
   end
