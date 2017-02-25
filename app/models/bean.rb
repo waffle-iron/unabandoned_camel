@@ -13,7 +13,7 @@ class Bean < ApplicationRecord
 
 
   # def active
-  #   @bean == 1
+  #   @bean == 0
   # end
 
 end
