@@ -8,12 +8,17 @@
   </tr>
     <% @order.contents.each do |id, quantity| %>
       <tr>
-        <td><%= Bean.find(id).title %></td>
+        <td><%= link_to "#{Bean.find(id).title}", bean_path(id) %></td>
         <td><%= quantity %></td>
-        <td><%= Bean.find(id).price %></td>
+        <td>$<%= Bean.find(id).subtotal(quantity) %></td>
       </tr>
     <% end %>
 </table>
-<div id="total">
+<div id="order_info">
   <p>Total: $<%= @order.total_price %></p>
+  <p>Status: $<%= @order.status %></p>
+  <p>Order Sent: $<%= @order.date %></p>
+  <% if @order.completed_or_cancelled? %>
+    <p>Order Updated to <%= @order.status %> at <%= @order.update_time %></p>
+  <% end %>
 </div>

@@ -1,0 +1,52 @@
+require 'rails_helper'
+
+feature 'user views all past orders' do
+  scenario 'user navigates to view single order information' do
+    bean1 = create(:bean)
+    bean2 = create(:bean)
+    cart = Cart.new({"#{bean1.id}" => 3,
+                      "#{bean2.id}" => 2})
+    user = User.create(email: 'test@test.com', password: 'password')
+    order = user.orders.create(contents: cart.contents,
+                                total_price: cart.total_price)
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+    visit orders_path
+    click_button "View Order"
+
+    expect(current_path).to eq order_path(order)
+
+    within('#order-table') do
+      expect(page).to have_link("#{bean1.title}")
+      expect(page).to have_link("#{bean2.title}")
+      expect(page).to have_content("3")
+      expect(page).to have_content("2")
+      expect(page).to have_content("$#{bean2.subtotal(2)}")
+      expect(page).to have_content("$#{bean1.subtotal(3)}")
+    end
+
+    within('#order_info') do
+      expect(page).to have_content(order.total_price)
+      expect(page).to have_content(order.status)
+      expect(page).to have_content(order.date)
+    end
+
+    order.update_attributes(status: "Completed")
+
+    visit order_path(order)
+
+    within('#order_info') do
+      expect(page).to have_content("Order Updated to #{order.status} at #{order.update_time}")
+    end
+
+    order.update_attributes(status: "Cancelled")
+
+    visit order_path(order)
+
+    within('#order_info') do
+      expect(page).to have_content("Order Updated to #{order.status} at #{order.update_time}")
+    end
+
+  end
+end

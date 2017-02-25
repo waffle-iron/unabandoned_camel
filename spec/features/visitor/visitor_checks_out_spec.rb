@@ -28,7 +28,7 @@ feature 'visitor check-out' do
       expect(page).to have_content('1')
     end
 
-    within('#total') do
+    within('#order_info') do
       expect(page).to have_content('1')
     end
 

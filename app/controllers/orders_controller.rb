@@ -8,6 +8,11 @@ class OrdersController < ApplicationController
     render :show
   end
 
+  def show
+    @order = Order.find(params[:id])
+  end
+
+
   def index
     @orders = current_user.orders
   end

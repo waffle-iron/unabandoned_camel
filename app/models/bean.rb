@@ -16,4 +16,9 @@ class Bean < ApplicationRecord
   #   @bean == 0
   # end
 
+  def subtotal(quantity)
+    (price * quantity).to_i
+  end
+
+
 end
