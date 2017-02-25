@@ -23,11 +23,11 @@ feature "user visits '/orders'" do
     within('#orders-table') do
       expect(page).to have_content(order1.id)
       expect(page).to have_content(order1.item_count)
-      expect(page).to have_content(order1.created_at)
+      expect(page).to have_content(order1.date)
       expect(page).to have_content(order1.total_price)
       expect(page).to have_content(order2.id)
       expect(page).to have_content(order2.item_count)
-      expect(page).to have_content(order2.created_at)
+      expect(page).to have_content(order2.date)
       expect(page).to have_content(order2.total_price)
     end
 
