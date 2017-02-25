@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :set_cart
 
   helper_method :current_user
-  
+
 
   def dashboard
    render :dashboard
@@ -19,5 +19,9 @@ class ApplicationController < ActionController::Base
 
   def user!
     render file: '/public/404' unless current_user
+  end
+
+  def current_admin?
+  current_user && current_user.admin?
   end
 end
