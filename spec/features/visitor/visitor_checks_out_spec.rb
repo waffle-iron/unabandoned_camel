@@ -23,9 +23,8 @@ feature 'visitor check-out' do
     expect(current_path).to eq('/orders')
     expect(page).to have_content('Order was successfully placed')
 
-    within('.caption') do
+    within('#order-table') do
       expect(page).to have_content('coffee')
-      expect(page).to have_content('good')
       expect(page).to have_content('1')
     end
 

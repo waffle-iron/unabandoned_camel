@@ -1,5 +1,5 @@
 <h1>Your Most Recent Order</h1>
-<div class="row">
+<!-- <div class="row">
 <% @order.contents.each do |id, quantity| %>
   <div class="col-sm-12 col-md-12">
     <div class="thumbnail">
@@ -16,4 +16,22 @@
 </div>
 <div id="total">
   <p> Total: $<%= @cart.total_price %></p>
+</div> -->
+
+<table class="table table-striped" id="order-table">
+  <tr>
+    <th>Item</th>
+    <th>Quantity</th>
+    <th>Price</th>
+  </tr>
+    <% @order.contents.each do |id, quantity| %>
+      <tr>
+        <td><%= Bean.find(id).title %></td>
+        <td><%= quantity %></td>
+        <td><%= Bean.find(id).price %></td>
+      </tr>
+    <% end %>
+</table>
+<div id="total">
+  <p>Total: $<%= @order.total_price %></p>
 </div>
