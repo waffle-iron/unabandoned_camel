@@ -7,4 +7,8 @@ class OrdersController < ApplicationController
     flash[:order_placed] = 'Order was successfully placed'
     render :show
   end
+
+  def show
+    @order = Order.find(params[:id])
+  end
 end
