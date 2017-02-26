@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'dashboard', to: 'dashboard#dashboard'
+    resources :orders, only: [:update]
   end
 
   resources :orders, only: [:create, :show]
