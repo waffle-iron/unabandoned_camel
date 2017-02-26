@@ -11,9 +11,4 @@ class Bean < ApplicationRecord
 #Retired = 1
 #Coming Soon = 2
 
-
-  # def active
-  #   @bean == 0
-  # end
-
 end
