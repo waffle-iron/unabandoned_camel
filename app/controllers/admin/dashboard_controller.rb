@@ -8,10 +8,10 @@ class Admin::DashboardController < Admin::BaseController
       @order_list_title = params[:status_hold]
     else
       @orders = Order.order(:id)
-      @order_list_title = "All Orders" 
+      @order_list_title = "All Orders"
     end
     @beans = Bean.all
-
+    @all_orders = Order.order(:id)
     render :admin_dashboard
   end
 end

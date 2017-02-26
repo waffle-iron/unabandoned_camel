@@ -7,6 +7,7 @@
 <%= link_to "Completed", admin_dashboard_path(:status_hold => "Completed")%> |
 <%= link_to "All Orders", admin_dashboard_path(:status_hold => nil)%>
 </div>
+<section>
 <h3><%= @order_list_title %>:</h3>
 <div class ="order_list">
   <%@orders.each do |order| %>
@@ -29,9 +30,15 @@
     </ul><br>
   <% end %>
 </div>
+</section>
+<aside>
 <div class="order-status">
-  <p id="ordered-count">Ordered Count: <%= @orders.ordered_count %></p><br>
-  <p id="paid-count">Paid Count: <%= @orders.paid_count %></p><br>
-  <p id="cancelled-count">Cancelled Count: <%= @orders.cancelled_count %></p><br>
-  <p id="completed-count">Completed Count: <%= @orders.completed_count %></p>
+  <h3>Order Count by Status:</h3>
+  <ul>
+  <li id="ordered-count">Ordered Count: <%= @all_orders.ordered_count %></li><br>
+  <li id="paid-count">Paid Count: <%= @all_orders.paid_count %></li><br>
+  <li id="cancelled-count">Cancelled Count: <%= @all_orders.cancelled_count %></li><br>
+  <li id="completed-count">Completed Count: <%= @all_orders.completed_count %></li>
+  <ul>
 </div>
+</aside>
