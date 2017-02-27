@@ -24,7 +24,6 @@ include ActionView::Helpers::TextHelper
   end
 
   def update
-    byebug
     @cart.contents[params[:id]] = params[:update].to_i
     redirect_to cart_index_path
   end
