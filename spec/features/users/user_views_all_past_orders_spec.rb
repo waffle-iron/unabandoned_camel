@@ -20,15 +20,44 @@ feature "user visits '/orders'" do
 
     expect(page).to have_content('Order History')
 
-    within('#orders-table') do
+    within all('#order-id').first do
       expect(page).to have_content(order1.id)
+    end
+
+    within all('#order-item-count').first do
       expect(page).to have_content(order1.item_count)
+    end
+
+    within all('#order-date').first do
       expect(page).to have_content(order1.date)
+    end
+
+    within all('#order-total').first do
       expect(page).to have_content(order1.total_price)
+    end
+
+    within all('#view-order-button').first do
+      expect(page).to have_button('View Order')
+    end
+
+    within all('#order-id').last do
       expect(page).to have_content(order2.id)
+    end
+
+    within all('#order-item-count').last do
       expect(page).to have_content(order2.item_count)
+    end
+
+    within all('#order-date').last do
       expect(page).to have_content(order2.date)
+    end
+
+    within all('#order-total').last do
       expect(page).to have_content(order2.total_price)
+    end
+
+    within all('#view-order-button').last do
+      expect(page).to have_button('View Order')
     end
 
   end
