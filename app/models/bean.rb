@@ -19,6 +19,4 @@ class Bean < ApplicationRecord
   def subtotal(quantity)
     (price * quantity).to_i
   end
-
-
 end
