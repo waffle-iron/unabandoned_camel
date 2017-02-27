@@ -6,4 +6,8 @@ class Admin::OrdersController < Admin::BaseController
     redirect_back(fallback_location: 'admin/dashboard')
     end
   end
+
+  def show
+    @order = Order.find(params[:id])
+  end
 end
