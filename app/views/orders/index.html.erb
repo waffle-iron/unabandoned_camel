@@ -1,0 +1,21 @@
+<h1>Order History</h1>
+
+
+<table class="table table-striped" id="orders-table">
+  <tr>
+    <th>Order Number</th>
+    <th>Item Count</th>
+    <th>Order Date</th>
+    <th>Total Price</th>
+    <th>View</th>
+  </tr>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.id %></td>
+        <td><%= order.item_count %></td>
+        <td><%= order.date %></td>
+        <td>$<%= order.total_price %></td>
+        <td><%= button_to 'View Order', order_path(order), method: :get %></td>
+      </tr>
+    <% end %>
+</table>
