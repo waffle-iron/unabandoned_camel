@@ -8,7 +8,15 @@ feature "user visits '/orders'" do
                       "#{bean2.id}" => 2})
     cart2 = Cart.new({"#{bean1.id}" => 1,
                       "#{bean2.id}" => 1})
-    user = User.create(email: 'test@test.com', password: 'password')
+    user = User.create(email: 'test@test.com',
+                       password: 'password',
+                       password_confirmation: 'password',
+                       first_name: 'First Test',
+                       last_name: 'Last Test',
+                       street: '123 Test St',
+                       city: 'Test City',
+                       state: 'Test State',
+                       zip: '12345')
     order1 = user.orders.create(contents: cart1.contents,
                                 total_price: cart1.total_price)
     order2 = user.orders.create(contents: cart2.contents,
