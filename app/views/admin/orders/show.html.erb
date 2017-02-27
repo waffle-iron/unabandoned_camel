@@ -5,10 +5,11 @@
     <div class="thumbnail">
       <div class="caption">
         <h3>Ordered By:</h3>
-        <p><%= @order.user.name %></p>
-        <p><%= @order.user.street%></p>
-        <p><%= @order.user.city%> <%= @order.user.state %>, <%= @order.user.zip %></p>
-      </div>
+        <p id='user_name'><%= @order.user.first_name %> <%= @order.user.last_name %></p>
+        <div id='user_address'>
+          <p><%= @order.user.street%></p>
+          <p><%= @order.user.city%> <%= @order.user.state %>, <%= @order.user.zip %></p>
+        </div>
     </div>
   </div>
 </div>
@@ -29,7 +30,7 @@
 </table>
 <div id="order_info">
   <p id='order-total'>Total: $<%= @order.total_price %></p>
-  <p id='order-status'>Status: $<%= @order.status %></p>
+  <p id='order-status'>Status: <%= @order.status %></p>
   <p id='order-created-date'>Order Sent: <%= @order.date %></p>
   <% if @order.completed_or_cancelled? %>
     <p id='order-updated-date'>Order Updated to <%= @order.status %> at <%= @order.update_time %></p>
