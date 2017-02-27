@@ -8,7 +8,13 @@ describe "user creates new account" do
 
     click_on "Create Account"
 
+    fill_in "user[first_name]", with: "bob"
+    fill_in "user[last_name]", with: "smith"
     fill_in "user[email]", with: "bob@aol.com"
+    fill_in "user[street]", with: "123 test st"
+    fill_in "user[city]", with: "test city"
+    fill_in "user[state]", with: "test state"
+    fill_in "user[zip]", with: "12345"
     fill_in "user[password]", with: "password"
     fill_in "user[password_confirmation]", with: "password"
 
