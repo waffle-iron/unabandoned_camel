@@ -15,6 +15,15 @@ feature 'user logs in' do
 
       expect(current_path).to eq('/dashboard')
       expect(page).to have_content("Logged in as #{user.email}")
+      expect(page).to_not have_link('Login')
+      expect(page).to have_link('Logout')
+
+      within('#user_information') do
+        expect(page).to have_content('Your Account Information')
+        expect(page).to have_content('Email Address: test@test.com')
+        expect(page).to have_link('Your Order History')
+      end
+
     end
   end
   context 'inappropriate login' do
