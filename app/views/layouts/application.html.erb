@@ -9,19 +9,6 @@
   </head>
 
   <body>
-
-
-  <% flash.each do |type, message| %>
-    <% if type == "success" %>
-    <%= content_tag :div, sanitize(message), class:"alert-success" %>
-    <% elsif type == "danger" %>
-    <%= content_tag :div, sanitize(message), class:"alert-danger" %>
-    <% else %>
-    <%= content_tag :div, sanitize(message), class:"type" %>
-    <% end %>
-  <% end %>
-
-
     <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -81,6 +68,18 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<!--Flash Messages Setup-->
+<div style='text-align:center'>
+<% flash.each do |type, message| %>
+    <% if type == "success" %>
+    <%= content_tag :div, sanitize(message), class:"alert-success" %>
+    <% elsif type == "danger" %>
+    <%= content_tag :div, sanitize(message), class:"alert-danger" %>
+    <% else %>
+    <%= content_tag :div, sanitize(message), class:"type" %>
+    <% end %>
+  <% end %>
+</div>
 
     <%= yield %>
     <footer class="footer">
