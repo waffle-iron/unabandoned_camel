@@ -1,3 +1,16 @@
 Logged in as <%= current_user.email %>
 
-<%= link_to "Logout", session_path(session[:user_id]), method: "delete" %>
+<h1 align = center>Abandoned Camel Coffee Mercantile</h1>
+
+<div class="container">
+  <div class="jumbotron">
+    <div class="row">
+      <div class ="col-md-7" id="user_information">
+        <h2 align=center>Your Account Information</h2>
+          <p align=center>Email Address: <%= current_user.email %></p>
+          <p align=center><a class="btn btn-success btn-lg" href="/orders" role="button">Your Order History</a></p>
+      </div>
+      <img src="https://s-media-cache-ak0.pinimg.com/236x/3d/d2/13/3dd2131461d175675b695d667b305950.jpg"</img>
+    </div>
+  </div>
+</div>
