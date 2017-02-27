@@ -13,21 +13,21 @@ describe "admin visits admin dashboard" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
 
-    order_one = Order.create(user_id: User.create(email:"hello@hello.com", 
-                            password: "password", id:1), contents: {"1"=>2}, 
-                            total_price: 4, status: "Ordered", user_id:1)
+    order_one = Order.create(user_id: User.create(email:"hello@hello.com",
+                            password: "password", id:1), contents: {"1"=>2},
+                            total_price: 4, status: "Ordered")
 
-    order_two = Order.create(user_id: User.create(email:"hello@hello.com", 
-                            password: "password", id:2), contents: {"3"=>2}, 
-                            total_price: 4, status: "Paid", user_id:2)
+    order_two = Order.create(user_id: User.create(email:"hello@hello.com",
+                            password: "password", id:2), contents: {"3"=>2},
+                            total_price: 4, status: "Paid")
 
-    order_three = Order.create(user_id: User.create(email:"hello@hello.com", 
-                              password: "password", id:7), contents: {"4"=>2}, 
-                              total_price: 4, status: "Cancelled", user_id:7)
+    order_three = Order.create(user_id: User.create(email:"hello@hello.com",
+                              password: "password", id:7), contents: {"4"=>2},
+                              total_price: 4, status: "Cancelled")
 
-    order_four = Order.create(user_id: User.create(email:"hello@hello.com", 
-                              password: "password", id:5), contents: {"5"=>2}, 
-                              total_price: 4, status: "Completed", user_id:5)
+    order_four = Order.create(user_id: User.create(email:"hello@hello.com",
+                              password: "password", id:5), contents: {"5"=>2},
+                              total_price: 4, status: "Completed")
 
     visit 'admin/dashboard'
 

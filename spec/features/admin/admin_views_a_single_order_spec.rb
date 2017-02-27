@@ -4,6 +4,13 @@ feature 'admin views a single order' do
   scenario 'admin sees required order information' do
     admin = User.create(email: 'admin@admin.com',
                         password: 'password',
+                        password_confirmation: 'password',
+                        first_name: 'First Test',
+                        last_name: 'Last Test',
+                        street: '123 Test St',
+                        city: 'Test City',
+                        state: 'Test State',
+                        zip: '12345',
                         role: 1)
     bean1 = create(:bean)
     bean2 = create(:bean)
