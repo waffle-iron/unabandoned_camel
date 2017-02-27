@@ -6,7 +6,15 @@ feature 'user views all past orders' do
     bean2 = create(:bean)
     cart = Cart.new({"#{bean1.id}" => 3,
                       "#{bean2.id}" => 2})
-    user = User.create(email: 'test@test.com', password: 'password')
+    user = User.create(email: 'test@test.com',
+                       password: 'password',
+                       password_confirmation: 'password',
+                       first_name: 'First Test',
+                       last_name: 'Last Test',
+                       street: '123 Test St',
+                       city: 'Test City',
+                       state: 'Test State',
+                       zip: '12345')
     order = user.orders.create(contents: cart.contents,
                                 total_price: cart.total_price)
 

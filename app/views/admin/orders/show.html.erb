@@ -1,0 +1,39 @@
+<h1>Order: <%= @order.id %></h1>
+
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <div class="caption">
+        <h3>Ordered By:</h3>
+        <p id='user_name'><%= @order.user.first_name %> <%= @order.user.last_name %></p>
+        <div id='user_address'>
+          <p><%= @order.user.street%></p>
+          <p><%= @order.user.city%> <%= @order.user.state %>, <%= @order.user.zip %></p>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<table class="table table-striped" id="order-table">
+  <tr>
+    <th>Item</th>
+    <th>Quantity</th>
+    <th>Price</th>
+  </tr>
+    <% @order.contents.each do |id, quantity| %>
+      <tr>
+        <td id='item-link'><%= link_to "#{Bean.find(id).title}", bean_path(id) %></td>
+        <td id='item-quantity'><%= quantity %></td>
+        <td id='item-subtotal'>$<%= Bean.find(id).subtotal(quantity) %></td>
+      </tr>
+    <% end %>
+</table>
+<div id="order_info">
+  <p id='order-total'>Total: $<%= @order.total_price %></p>
+  <p id='order-status'>Status: <%= @order.status %></p>
+  <p id='order-created-date'>Order Sent: <%= @order.date %></p>
+  <% if @order.completed_or_cancelled? %>
+    <p id='order-updated-date'>Order Updated to <%= @order.status %> at <%= @order.update_time %></p>
+  <% end %>
+</div>
