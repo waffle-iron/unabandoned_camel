@@ -18,4 +18,20 @@ class Order < ApplicationRecord
   def self.completed_count
     where(status:"Completed").count
   end
+
+  def item_count
+    contents.values.sum
+  end
+
+  def date
+    created_at.strftime('%m/%d/%Y %I:%M %p')
+  end
+
+  def completed_or_cancelled?
+    status == 'Completed' || 'Cancelled'
+  end
+
+  def update_time
+    updated_at.strftime('%m/%d/%Y %I:%M %p')
+  end
 end
