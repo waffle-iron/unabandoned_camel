@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 describe 'when a visitor with items in cart logs in to a user session' do
   describe 'and navigates to the cart page' do
     it 'cart still has visitor items' do
@@ -7,8 +9,14 @@ describe 'when a visitor with items in cart logs in to a user session' do
 
 
       user = User.create(email: 'test@test.com',
-                  password: 'password',
-                  password_confirmation: 'password')
+                         password: 'password',
+                         password_confirmation: 'password',
+                         first_name: 'First Test',
+                         last_name: 'Last Test',
+                         street: '123 Test St',
+                         city: 'Test City',
+                         state: 'Test State',
+                         zip: '12345')
 
       visit beans_path
 
@@ -34,8 +42,14 @@ describe 'when a visitor with items in cart logs in to a user session' do
     it 'logs out and displays login' do
 
       user = User.create(email: 'test@test.com',
-                  password: 'password',
-                  password_confirmation: 'password')
+                         password: 'password',
+                         password_confirmation: 'password',
+                         first_name: 'First Test',
+                         last_name: 'Last Test',
+                         street: '123 Test St',
+                         city: 'Test City',
+                         state: 'Test State',
+                         zip: '12345')
 
       visit login_path
 
