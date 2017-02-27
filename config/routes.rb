@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:update]
   end
 
-  resources :orders, only: [:create, :show]
+  resources :orders, only: [:create, :show, :index]
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
