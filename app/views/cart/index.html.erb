@@ -1,19 +1,21 @@
 <h1>Cart</h1>
 <div class="row">
-<% @cart.contents.each do |id, quantity| %>
+<% @cart_items.each do |item| %>
   <div class="col-sm-12 col-md-12">
     <div class="thumbnail">
       <img src="..." alt="...">
       <div class="caption">
-        <h3><%= @bean.find(id).title %></h3><br>
-        <p>Description: <%= @bean.find(id).description %></p>
-        <p>Price: $<%= @bean.find(id).price %></p>
-        <p> Quantity: <%= quantity %></p><br>
-        <%= form_tag(cart_path(id), method: :put) do%>
+        <h3><%= item.title %></h3><br>
+        <p>Description: <%= item.description %></p>
+        <p>Price: $<%= item.price %></p>
+        <p> Quantity: <%= item.quantity %></p><br>
+        <%= link_to("Increase Quantity", cart_path(item, :modify => '1'), method: :put) %>
+        <%= link_to("Decrease Quantity", cart_path(item, :modify => '-1'), method: :put) %>
+        <%= form_tag(cart_path(item.id), method: :put) do%>
           <%= text_field_tag 'update',nil, placeholder:"Enter Quantity"%>
           <%= submit_tag 'Update Cart' %>
         <% end %><br>
-        <p><%= link_to "Remove", cart_path(id), method: :delete %></p>
+        <p><%= link_to "Remove", cart_path(item.id), method: :delete %></p>
       </div>
     </div>
   </div>

@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :set_cart
+  before_action :cart
 
   helper_method :current_user
 
@@ -9,8 +9,8 @@ class ApplicationController < ActionController::Base
    render :dashboard
   end
 
-  def set_cart
-    @cart = Cart.new(session[:cart])
+  def cart
+    @cart ||= Cart.new(session[:cart])
   end
 
   def current_user

@@ -1,18 +1,19 @@
 class CartController < ApplicationController
 include ActionView::Helpers::TextHelper
 
-  def create
-    bean = Bean.find(params[:bean_id])
-
-    @cart.add_bean(bean.id)
-    session[:cart] = @cart.contents
-
-    flash[:notice] = "#{pluralize(@cart.count_of(bean.id), bean.title)} added to cart"
-    redirect_to beans_path
-  end
+  # def create
+  #   bean = Bean.find(params[:bean_id])
+  #
+  #   @cart.add_bean(bean.id)
+  #   session[:cart] = @cart.contents
+  #
+  #   flash[:notice] = "#{pluralize(@cart.count_of(bean.id), bean.title)} added to cart"
+  #   redirect_to beans_path
+  # end
 
   def index
-    @bean = Bean.all
+    @cart_items = cart.items
+    byebug
   end
 
   def destroy
@@ -24,8 +25,18 @@ include ActionView::Helpers::TextHelper
   end
 
   def update
-    byebug
-    @cart.contents[params[:id]] = params[:update].to_i
+    if params[:modify] == "1"
+      @cart.contents[params[:id]] += params[:modify].to_i
+    elsif params[:modify] == "-1"
+      @cart.content[params[:id]] -= params[:modify].to_i
+    end
+    if params[:update].to_i > 1
+      @cart.contents[params[:id]] = params[:update].to_i
+    elsif params[:update].to_i == 0
+      @cart.contents.delete(params[:id].to_s)
+    else
+      flash[:danger] = "Item quantity cannot be negative"
+    end
     redirect_to cart_index_path
   end
 

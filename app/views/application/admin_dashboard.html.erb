@@ -16,8 +16,8 @@
       <li> Contents: <br>
       <ol>
           <%order.contents.each do |id, quantity|%>
-         <li><strong><%=@beans.find(id.to_i).title%></strong><br>
-          Quantity: <%=quantity%> <br>
+         <li><strong><%=@cart.find_title(id)%></strong><br>
+          Quantity: <%=@cart.find_quantity(id)%> <br>
           <% end %>
           </ol>
           </li>

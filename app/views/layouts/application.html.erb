@@ -76,7 +76,7 @@
         <% else %>
           <li class='logout'><%= link_to "Logout", '/logout', method: :delete %></li>
         <% end %>
-        <li><a href="/cart">Cart</a></li>
+        <li><a href="/cart">Cart ( <%= @cart.cart_count %> )</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
