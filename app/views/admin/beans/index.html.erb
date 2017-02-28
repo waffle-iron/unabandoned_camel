@@ -1,0 +1,9 @@
+<h1>All Beans</h1>
+
+<% @beans.each do |bean|%>
+<%=bean.title%>
+<%=bean.description%>
+<%=bean.price%>
+<%=image_tag bean.image.thumb('400x200#').url%>
+
+<%end%>
