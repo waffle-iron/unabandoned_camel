@@ -28,12 +28,13 @@ include ActionView::Helpers::TextHelper
     if params[:modify] == "1"
       @cart.contents[params[:id]] += params[:modify].to_i
     elsif params[:modify] == "-1"
-      @cart.contents[params[:id]] -= params[:modify].to_i.abs
+      unless @cart.contents[params[:id]] == 1
+        @cart.contents[params[:id]] -= params[:modify].to_i.abs
+      end
     end
     if params[:update]
       @cart.contents[params[:id]] = params[:update].to_i
     end
     redirect_to cart_index_path
   end
-
 end

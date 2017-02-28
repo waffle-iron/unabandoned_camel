@@ -49,4 +49,20 @@ class Cart
   def cart_count
     contents.values.reduce(:+)
   end
+
+  def cart_increase_decrease(cart, params)
+    if params[:modify] == "1"
+      @cart.contents[params[:id]] += params[:modify].to_i
+    elsif params[:modify] == "-1"
+      unless @cart.contents[params[:id]] == 1
+        @cart.contents[params[:id]] -= params[:modify].to_i.abs
+      end
+    end
+  end
+
+  def self.cart_edit(params)
+    if params[:update]
+      @cart.contents[params[:id]] = params[:update].to_i
+    end
+  end
 end

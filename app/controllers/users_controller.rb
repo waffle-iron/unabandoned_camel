@@ -31,5 +31,4 @@ before_action :user!, only: [:show]
                                  :zip,
                                  :password)
   end
-
 end
