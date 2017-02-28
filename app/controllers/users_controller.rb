@@ -22,7 +22,14 @@ before_action :user!, only: [:show]
   private
 
   def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:email,
+                                 :first_name,
+                                 :last_name,
+                                 :street,
+                                 :city,
+                                 :state,
+                                 :zip,
+                                 :password)
   end
 
 end

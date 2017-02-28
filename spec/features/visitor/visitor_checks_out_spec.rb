@@ -3,7 +3,15 @@ require 'rails_helper'
 feature 'visitor check-out' do
   scenario 'visitor looks at their cart' do
     bean = Bean.create(title:"coffee", description:"good", price:1, image:"123")
-    User.create(email: 'test@test.com', password: 'password')
+    User.create(email: 'test@test.com',
+                password: 'password',
+                password_confirmation: 'password',
+                first_name: 'First Test',
+                last_name: 'Last Test',
+                street: '123 Test St',
+                city: 'Test City',
+                state: 'Test State',
+                zip: '12345')
     visit beans_path
     click_button "Add Item"
     visit ('/cart')

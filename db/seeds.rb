@@ -21,3 +21,5 @@ NAME.each do |name|
   category = Category.create!(name: name)
   puts "Created #{category.name}"
 end
+
+User.create(email: "admin@admin.com", password: "password", role: 1)

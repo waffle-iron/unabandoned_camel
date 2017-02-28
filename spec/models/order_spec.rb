@@ -8,8 +8,15 @@ RSpec.describe Order, type: :model do
     expect(order.contents.class).to eq(Hash)
   end
   it 'has a relationship with a user' do
-    user= User.create(email: 'test@test.com',
-                      password: 'password')
+    user = User.create(email: 'test@test.com',
+                       password: 'password',
+                       password_confirmation: 'password',
+                       first_name: 'First Test',
+                       last_name: 'Last Test',
+                       street: '123 Test St',
+                       city: 'Test City',
+                       state: 'Test State',
+                       zip: '12345')
     order = user.orders.create()
 
     expect(order).to respond_to(:user)
