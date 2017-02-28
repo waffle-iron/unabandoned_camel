@@ -1,5 +1,7 @@
 class Category < ApplicationRecord
   extend FriendlyId
+  validates :name, presence: true, uniqueness: true
+
   before_create :slug
 
   friendly_id :name, use: :slugged
