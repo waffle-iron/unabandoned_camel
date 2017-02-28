@@ -7,7 +7,7 @@
         <h3><%= link_to bean.title, bean_path(bean) %></h3>
         <p>Description: <%= bean.description %></p>
         <p>Price: <%= bean.price %></p>
-        <p>   <%= button_to "Add Item", cart_index_path(bean_id: bean.id),  class: "btn btn_danger"%></p>
+        <p>   <%= button_to "Add Item", cart_items_path(bean_id: bean.id),  class: "btn btn_danger"%></p>
       </div>
     </div>
   </div>

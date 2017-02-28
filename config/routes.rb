@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index]
 
+  resources :cart_items
+
   resources :cart
 
   resources :users, only: [:new, :create]
