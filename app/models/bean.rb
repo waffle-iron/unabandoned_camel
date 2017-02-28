@@ -5,10 +5,9 @@ class Bean < ApplicationRecord
   validates :image, presence: true
   has_many :bean_categories
   has_many :categories, through: :bean_categories
+  dragonfly_accessor :image
 
-  # has_attached_file :image
-  has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/coffee 9.jpg"
-  validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
+  before_save :assign_image
 
 #Bean Status
 #Active = 0
@@ -22,5 +21,13 @@ class Bean < ApplicationRecord
 
   def subtotal(quantity)
     (price * quantity).to_i
+  end
+
+  def assign_image
+    unless self.image != nil
+      i = File.open("#{Rails.root}/public/images/coffee 11.jpg")
+      self.image = i
+      self.save!
+    end
   end
 end
