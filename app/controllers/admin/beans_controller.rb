@@ -21,9 +21,24 @@ class Admin::BeansController < Admin::BaseController
     end
   end
 
+    def edit
+      @bean = Bean.find(params[:id])
+    end
+
+    def update
+      @bean = Bean.find(params[:id])
+      if @bean.update(bean_params)
+        flash[:success] = "Bean updated successfully!"
+        redirect_to admin_beans_path
+      else
+        flash[:danger] = "Update Failed. Try Again."
+        render :edit
+      end
+    end
   private
 
   def bean_params
-    params.require(:bean).permit(:title, :description, :price)
+    params.require(:bean).permit(:title, :description, :price, :status)
   end
+
 end
