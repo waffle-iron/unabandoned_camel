@@ -4,9 +4,10 @@
   <div class="jumbotron">
     <div class="row">
       <div class ="col-md-7">
+        <%= image_tag @bean.image.thumb('200x200').url%>
         <h2 align=center><%= @bean.title %></h2>
           <p><%= @bean.description %></p>
-          <p><%= @bean.price %></p>
+          <p id="price"><%= @bean.price %></p>
           <% if @bean.status == 0 %>
             <p align=center><%= button_to "Add Item", cart_items_path(bean_id: @bean.id),  class: "btn btn_danger"%></p>
           <% else %>
