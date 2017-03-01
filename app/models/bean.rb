@@ -3,6 +3,7 @@ class Bean < ApplicationRecord
 
   validates_inclusion_of :status, :in =>  0..1
 
+
   validates :title, presence: true, uniqueness: true
   validates :description, presence: true
   validates :price, presence: true
