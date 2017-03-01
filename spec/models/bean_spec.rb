@@ -39,12 +39,6 @@ describe Bean, type: :model do
         expect(bean).to be_invalid
       end
 
-      it "is invalid without an image" do
-        bean = Bean.create(title: "Ethiopian Wazzala",
-                           description: "Light roasted Yirgacheffe",
-                           price: 17)
-        expect(bean).to be_invalid
-      end
     end
 
     context "valid attributes" do
