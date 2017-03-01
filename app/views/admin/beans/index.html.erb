@@ -1,9 +1,24 @@
 <h1>All Beans</h1>
 
-<% @beans.each do |bean|%>
-<%=bean.title%>
-<%=bean.description%>
-<%=bean.price%>
-<%=image_tag bean.image.thumb('400x200#').url%>
-
+<table class = 'table table-striped' id='order-table'>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Status</th>
+    <th text-align="right">Image</th>
+    <th> Edit </th>
+  <tr>
+    <% @beans.each do |bean|%>
+  <tr>
+    <td id ='item-link'><%=link_to bean.title%> </td>
+    <td id ='item-description'><%=bean.description%> </td>
+    <td id = 'item-status'>
+      <%if bean.status == 0%>
+        Active
+      <%else %>
+        Retired
+        <% end %></td>
+    <td id = 'item-image'><%=image_tag bean.image.thumb('400x200#').url%></td>
+    <td id ="item-action"><%= link_to "Edit", edit_admin_bean_path(bean)%> </td>
+  </tr>
 <%end%>

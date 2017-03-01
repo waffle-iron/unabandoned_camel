@@ -26,11 +26,16 @@ describe "admin can create an item" do
       click_on "Add Bean"
 
       expect(current_path).to eq(admin_beans_path)
-    # within(".container") do
-      expect(page).to have_content("Moka Java")
-      expect(page).to have_content("Compromised of half Ardi and half Sumatra")
-      expect(page).to have_content(14.5)
-    # end
       expect(Bean.count).to eq(1)
+
+      within ('#item-link') do    
+        expect(page).to have_content("Moka Java")
+      end
+      within ('#item-description') do        
+        expect(page).to have_content("Compromised of half Ardi and half Sumatra")
+      end
+      within ('#item-status') do    
+        expect(page).to have_content("Active")
+      end
   end
 end      
