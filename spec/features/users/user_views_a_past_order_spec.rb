@@ -2,8 +2,15 @@ require 'rails_helper'
 
 feature 'user views all past orders' do
   scenario 'user navigates to view single order information' do
-    bean1 = create(:bean)
-    bean2 = create(:bean)
+    bean1 = Bean.create(title:"Dark Roast",
+                        description:"good",
+                        price:1,
+                        image:"123")
+    bean2 = Bean.create(title:"Light Roast",
+                        description:"great",
+                        price:1,
+                        image:"123")
+
     cart = Cart.new({"#{bean1.id}" => 3,
                       "#{bean2.id}" => 2})
     user = User.create(email: 'test@test.com',
@@ -15,8 +22,10 @@ feature 'user views all past orders' do
                        city: 'Test City',
                        state: 'Test State',
                        zip: '12345')
-    order = user.orders.create(contents: cart.contents,
-                                total_price: cart.total_price)
+
+    order = Order.build_order(cart, user)
+
+
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 

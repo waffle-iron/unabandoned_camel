@@ -1,9 +1,7 @@
 class OrdersController < ApplicationController
 
   def create
-    @order = current_user.orders.create(contents: @cart.contents,
-                                       total_price: @cart.total_price
-                                       )
+    @order = Order.build_order(@cart, current_user)
     flash[:success] = 'Order was successfully placed'
     render :show
   end

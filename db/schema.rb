@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170228154358) do
+ActiveRecord::Schema.define(version: 20170228235513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,8 +40,20 @@ ActiveRecord::Schema.define(version: 20170228154358) do
     t.index ["slug"], name: "index_categories_on_slug", unique: true, using: :btree
   end
 
+  create_table "order_beans", force: :cascade do |t|
+    t.integer  "order_id"
+    t.integer  "bean_id"
+    t.integer  "quantity"
+    t.float    "price"
+    t.float    "subtotal"
+    t.string   "item_title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bean_id"], name: "index_order_beans_on_bean_id", using: :btree
+    t.index ["order_id"], name: "index_order_beans_on_order_id", using: :btree
+  end
+
   create_table "orders", force: :cascade do |t|
-    t.text     "contents"
     t.integer  "user_id"
     t.integer  "total_price"
     t.string   "status",      default: "Ordered"
@@ -67,5 +79,7 @@ ActiveRecord::Schema.define(version: 20170228154358) do
 
   add_foreign_key "bean_categories", "beans"
   add_foreign_key "bean_categories", "categories"
+  add_foreign_key "order_beans", "beans"
+  add_foreign_key "order_beans", "orders"
   add_foreign_key "orders", "users"
 end

@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
-  serialize :contents, Hash
   belongs_to :user
-  validates :contents, presence: true
+  has_many :order_beans
+  has_many :beans, through: :order_beans
 
   def self.ordered_count
     where(status:"Ordered").count
@@ -20,7 +20,7 @@ class Order < ApplicationRecord
   end
 
   def item_count
-    contents.values.sum
+    order_beans.sum(:quantity)
   end
 
   def date
@@ -33,5 +33,18 @@ class Order < ApplicationRecord
 
   def update_time
     updated_at.strftime('%m/%d/%Y %I:%M %p')
+  end
+
+  def self.build_order(cart, user)
+    order = user.orders.create(total_price: cart.total_price)
+    cart.items.each do |cart_item|
+      order.order_beans.create(bean_id: cart_item.id,
+                              quantity: cart_item.quantity,
+                              price: cart_item.price,
+                              subtotal: (cart_item.quantity * cart_item.price),
+                              item_title: cart_item.title,
+                              )
+    end
+    order
   end
 end
