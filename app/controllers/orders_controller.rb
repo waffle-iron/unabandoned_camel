@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.build_order(@cart, current_user)
     flash[:success] = 'Order was successfully placed'
+    session[:cart].clear
     render :show
   end
 

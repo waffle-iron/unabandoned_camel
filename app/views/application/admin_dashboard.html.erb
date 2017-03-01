@@ -15,18 +15,22 @@
       <h4><%=link_to "Order #{order.id}", admin_order_path(order)%></h4>
       <li> Contents: <br>
       <ol>
-          <%order.contents.each do |id, quantity|%>
-         <li><strong><%=@cart.find_title(id)%></strong><br>
-          Quantity: <%=@cart.find_quantity(id)%> <br>
+          <%order.order_beans.each do |order_bean|%>
+         <li><strong><%=order_bean.item_title%></strong><br>
+          Quantity: <%=order_bean.quantity%> <br>
           <% end %>
           </ol>
           </li>
       <li> Total Price: $<%=order.total_price%></li>
       <li> Status: <%=order.status%></li>
       Change Status:
+      <% if order.status == 'Paid' || 'Ordered' %>
       <%= link_to("Cancel", admin_order_path(order, :status => 'Cancelled'), method: :put)%> |
+      <% elsif order.status == 'Ordered'  %>
       <%= link_to("Paid", admin_order_path(order, :status => 'Paid'), method: :put)%> |
+      <% elsif order.status == 'Paid'%>
       <%= link_to("Completed", admin_order_path(order, :status => 'Completed'), method: :put)%>
+      <% end %>
     </ul><br>
   <% end %>
 </div>
