@@ -14,7 +14,6 @@ include ActionView::Helpers::TextHelper
 
   def index
     @cart_items = cart.items
-    byebug
   end
 
   def destroy
@@ -29,17 +28,13 @@ include ActionView::Helpers::TextHelper
     if params[:modify] == "1"
       @cart.contents[params[:id]] += params[:modify].to_i
     elsif params[:modify] == "-1"
-      @cart.content[params[:id]] -= params[:modify].to_i
+      unless @cart.contents[params[:id]] == 1
+        @cart.contents[params[:id]] -= params[:modify].to_i.abs
+      end
     end
-    if params[:update].to_i > 1
+    if params[:update]
       @cart.contents[params[:id]] = params[:update].to_i
-    elsif params[:update].to_i == 0
-      @cart.contents.delete(params[:id].to_s)
-    else
-      flash[:danger] = "Item quantity cannot be negative"
     end
-
     redirect_to cart_index_path
   end
-
 end

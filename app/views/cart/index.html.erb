@@ -12,7 +12,7 @@
         <%= link_to("Increase Quantity", cart_path(item, :modify => '1'), method: :put) %>
         <%= link_to("Decrease Quantity", cart_path(item, :modify => '-1'), method: :put) %>
         <%= form_tag(cart_path(item.id), method: :put) do%>
-          <%= text_field_tag 'update',nil, placeholder:"Enter Quantity"%>
+          <%= number_field_tag 'update',nil,min:1, placeholder:"Enter Quantity"%>
           <%= submit_tag 'Update Cart' %>
         <% end %><br>
         <p><%= link_to "Remove", cart_path(item.id), method: :delete %></p>

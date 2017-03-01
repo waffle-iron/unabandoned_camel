@@ -16,7 +16,7 @@ describe ' when guest visits cart index page' do
     expect(page).to_not have_content("1")
 
 
-    within(".alert-success") do
+    within(".alert-danger") do
       expect(page).to have_content("Successfully removed Dark Roast from your cart.")
       click_link "Dark Roast"
     end

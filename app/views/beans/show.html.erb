@@ -8,7 +8,7 @@
           <p><%= @bean.description %></p>
           <p><%= @bean.price %></p>
           <% if @bean.status == 0 %>
-            <p align=center><%= button_to "Add Item", cart_index_path(bean_id: @bean.id),  class: "btn btn_danger"%></p>
+            <p align=center><%= button_to "Add Item", cart_items_path(bean_id: @bean.id),  class: "btn btn_danger"%></p>
           <% else %>
             <p align=center> Item Retired </p>
           <% end %>
@@ -22,6 +22,3 @@
     </div>
   </div>
 </div>
-
-
-
