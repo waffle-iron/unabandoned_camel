@@ -38,6 +38,7 @@ class Admin::BeansController < Admin::BaseController
   private
 
   def bean_params
-    params.require(:bean).permit(:title, :description, :price)
+    params.require(:bean).permit(:title, :description, :price, :status)
   end
+
 end
