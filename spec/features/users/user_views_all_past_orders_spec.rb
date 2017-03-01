@@ -2,8 +2,16 @@ require 'rails_helper'
 
 feature "user visits '/orders'" do
   scenario 'user sees their past orders' do
-    bean1 = create(:bean)
-    bean2 = create(:bean)
+    bean1 = Bean.create(id: 1,
+                        title:"Dark Roast",
+                        description:"good",
+                        price:1,
+                        image:"123")
+    bean2 = Bean.create(id: 2,
+                        title:"Light Roast",
+                        description:"great",
+                        price:1,
+                        image:"123")
     cart1 = Cart.new({"#{bean1.id}" => 3,
                       "#{bean2.id}" => 2})
     cart2 = Cart.new({"#{bean1.id}" => 1,
@@ -17,10 +25,8 @@ feature "user visits '/orders'" do
                        city: 'Test City',
                        state: 'Test State',
                        zip: '12345')
-    order1 = user.orders.create(contents: cart1.contents,
-                                total_price: cart1.total_price)
-    order2 = user.orders.create(contents: cart2.contents,
-                                total_price: cart2.total_price)
+    order1 = Order.build_order(cart1, user)
+    order2 = Order.build_order(cart2, user)
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
