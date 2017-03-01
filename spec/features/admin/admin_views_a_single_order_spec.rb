@@ -12,8 +12,16 @@ feature 'admin views a single order' do
                         state: 'Test State',
                         zip: '12345',
                         role: 1)
-    bean1 = create(:bean)
-    bean2 = create(:bean)
+    bean1 = Bean.create(id: 1,
+                        title:"Dark Roast",
+                        description:"good",
+                        price:1,
+                        image:"123")
+    bean2 = Bean.create(id: 2,
+                        title:"Light Roast",
+                        description:"great",
+                        price:1,
+                        image:"123")
     cart = Cart.new({"#{bean1.id}" => 3,
                      "#{bean2.id}" => 2})
     user = User.create(email: 'test@test.com', password: 'password',
@@ -23,8 +31,8 @@ feature 'admin views a single order' do
                        city: 'Test City',
                        state: 'Test State',
                        zip: '12345')
-    order = user.orders.create(contents: cart.contents,
-                               total_price: cart.total_price)
+    order = Order.build_order(cart, user)
+
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 

@@ -2,7 +2,11 @@ require 'rails_helper'
 
   feature 'guest visits show page' do
     scenario 'guest sees bean information' do
-      bean = create(:bean)
+      bean = Bean.create(id: 1,
+                         title:"Dark Roast",
+                         description:"good",
+                         price:1,
+                         image:"123")
 
       visit bean_path(bean)
 
@@ -12,14 +16,17 @@ require 'rails_helper'
       within all('p').first do
         expect(page).to have_content(bean.description)
       end
-      within(".col-md-7 p:nth-child(2)") do
+      within("#price") do
         expect(page).to have_content(bean.price)
       end
-      # expect(page).to have_content(bean.image)
     end
 
     scenario 'guest can add item to cart' do
-      bean = create(:bean)
+      bean = Bean.create(id: 1,
+                         title:"Dark Roast",
+                         description:"good",
+                         price:1,
+                         image:"123")
 
       visit bean_path(bean)
 
