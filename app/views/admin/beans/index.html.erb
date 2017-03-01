@@ -10,7 +10,7 @@
   <tr>
     <% @beans.each do |bean|%>
   <tr>
-    <td id ='item-link'><%=link_to bean.title%> </td>
+    <td id ='item-link'><%=link_to bean.title, bean_path(bean)%> </td>
     <td id ='item-description'><%=bean.description%> </td>
     <td id = 'item-status'>
       <%if bean.status == 0%>

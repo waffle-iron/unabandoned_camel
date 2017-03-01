@@ -1,11 +1,16 @@
 class Bean < ApplicationRecord
   validates :price, :numericality => {:greater_than_or_equal_to => 1 }
+<<<<<<< HEAD
   validates_inclusion_of :status, :in =>  0..1 
+=======
+
+  validates_inclusion_of :status, :in =>  0..1 
+  
+>>>>>>> 2ea1833e5f4057da757495c50743023234ef2247
 
   validates :title, presence: true, uniqueness: true
   validates :description, presence: true
   validates :price, presence: true
-  #validates :image, presence: true
   has_many :bean_categories
   has_many :categories, through: :bean_categories
   dragonfly_accessor :image
@@ -17,10 +22,6 @@ class Bean < ApplicationRecord
 #Retired = 1
 #Coming Soon = 2
 
-
-  # def active
-  #   @bean == 0
-  # end
 
   def subtotal(quantity)
     (price * quantity).to_i
