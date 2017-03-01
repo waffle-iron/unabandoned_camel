@@ -1,6 +1,5 @@
 class Bean < ApplicationRecord
   validates :price, :numericality => {:greater_than_or_equal_to => 1 }
-
   validates_inclusion_of :status, :in =>  0..1
 
 
