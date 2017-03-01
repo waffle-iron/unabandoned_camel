@@ -25,13 +25,9 @@
       <li> Total Price: $<%=order.total_price%></li>
       <li> Status: <%=order.status%></li>
       Change Status:
-      <% if order.status == 'Paid' || 'Ordered' %>
-      <%= link_to("Cancel", admin_order_path(order, :status => 'Cancelled'), method: :put)%> |
-      <% elsif order.status == 'Ordered'  %>
-      <%= link_to("Paid", admin_order_path(order, :status => 'Paid'), method: :put)%> |
-      <% elsif order.status == 'Paid'%>
-      <%= link_to("Completed", admin_order_path(order, :status => 'Completed'), method: :put)%>
-      <% end %>
+      <%= link_to("Cancel", admin_order_path(order, :status => 'Cancelled'), method: :put) if order.status == "Paid"||order.status =="Ordered"%>
+      <%= link_to("Paid", admin_order_path(order, :status => 'Paid'), method: :put) if order.status == "Ordered" %>
+      <%= link_to("Completed", admin_order_path(order, :status => 'Completed'), method: :put) if order.status == "Paid"%>
     </ul><br>
   <% end %>
 </div>
