@@ -1,4 +1,4 @@
-<h1>Category Show Page</h1>
+<!-- <h1>Category Show Page</h1>
 
 <ul>
   <% @category.beans.each do |bean| %>
@@ -6,4 +6,25 @@
     <li><%= bean.description %></li>
     <li><%= bean.price %></li>
   <% end %>
-</ul>
+</ul> -->
+
+<h1 class="all-beans"><%= @category.name %></h1>
+<div class="row">
+<% @category.beans.each do |bean| %>
+  <div class="col-sm-4 col-md-3">
+    <div class="thumbnail">
+      <div class="bean_pic">
+      <%= image_tag bean.image.thumb('175x175#').url%>
+    </div>
+      <div class="caption">
+        <h3 class="bean_stats"><%= link_to bean.title, bean_path(bean) %></h3>
+        <p class = "bean_stats">Description: <%= bean.description %></p>
+        <p class = "bean_stats">Price: <%= bean.price %></p>
+        <div class = "bean_button">
+        <p class = "bean_stats"> <%= button_to "Add Item", cart_items_path(bean_id: bean.id),  class: "btn btn_danger"%></p>
+      </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
