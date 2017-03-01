@@ -43,8 +43,8 @@ describe Bean, type: :model do
 
     context "valid attributes" do
       it "is valid with a unique title, description, price, and image" do
-        bean = Bean.create(title: "Ethiopian Wazzala",
-                           description: "Light roasted Yirgacheffe",
+        bean = Bean.create(title: "unique title",
+                           description: "heavy roasted Yirgacheffe",
                            price: 17,
                            image: "wazzala.jpg")
         expect(bean).to be_valid
