@@ -8,4 +8,5 @@ class BeansController < ApplicationController
     @bean = Bean.find(params[:id])
   end
     
+  
 end
