@@ -21,11 +21,11 @@
     <th>Quantity</th>
     <th>Price</th>
   </tr>
-    <% @order.contents.each do |id, quantity| %>
+    <% @order.order_beans.each do |order_bean| %>
       <tr>
-        <td id='item-link'><%= link_to "#{Bean.find(id).title}", bean_path(id) %></td>
-        <td id='item-quantity'><%= quantity %></td>
-        <td id='item-subtotal'>$<%= Bean.find(id).subtotal(quantity) %></td>
+        <td id='item-link'><%= link_to "#{order_bean.item_title}", bean_path(order_bean.bean_id) %></td>
+        <td id='item-quantity'><%= order_bean.quantity %></td>
+        <td id='item-subtotal'>$<%= order_bean.subtotal %></td>
       </tr>
     <% end %>
 </table>
