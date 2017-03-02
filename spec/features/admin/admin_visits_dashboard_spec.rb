@@ -51,7 +51,7 @@ describe "admin visits admin dashboard" do
       # click_link("Paid")
       # expect(page).to have_content("Paid")
     end
-save_and_open_page
+
     within (".order_list .orders:nth-child(2)") do
       expect(page).to have_content("Paid")
       expect(page).to have_link("Order 2")
