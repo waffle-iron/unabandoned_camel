@@ -18,7 +18,7 @@
       <%else %>
         Retired
         <% end %></td>
-    <td id = 'item-image'><%=image_tag bean.image.thumb('400x200#').url%></td>
+    <td id = 'item-image'><%=image_tag bean.image.remote_url %></td>
     <td id ="item-action"><%= link_to "Edit", edit_admin_bean_path(bean)%> </td>
   </tr>
 <%end%>
