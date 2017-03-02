@@ -21,7 +21,13 @@ module AbandonedCamelCoffeeMercantile
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-
-
+    if defined?(Rack::Cache)
+   config.middleware.delete(Rack::Cache)
+   config.middleware.insert 0, Rack::Cache, {
+     :verbose     => true, # log verbosity
+     :metastore   => URI.encode("file:#{Rails.root}/tmp/dragonfly/cache/meta"), # URI encoded in case of spaces
+     :entitystore => URI.encode("file:#{Rails.root}/tmp/dragonfly/cache/body")
+   }
+ end
  end
 end
