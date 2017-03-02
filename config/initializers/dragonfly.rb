@@ -4,8 +4,6 @@ require 'dragonfly/s3_data_store'
 Dragonfly.app.configure do
   plugin :imagemagick
 
-  url_format "/media/:job/:name"
-
 if Rails.env.development? || Rails.env.test?
   datastore :file,
             root_path: Rails.root.join('public/system/dragonfly', Rails.env),
