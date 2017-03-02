@@ -12,9 +12,7 @@ describe "when guest visits cart index page" do
 
       visit cart_index_path
 
-      #within all(".thumbnail").first do
         expect(page).to have_content("2")
-      #end
 
       fill_in "update", with: 4
       click_on "Update Cart"
