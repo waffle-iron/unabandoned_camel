@@ -22,20 +22,19 @@ describe "admin can create an item" do
       fill_in "bean[description]", with: "Compromised of half Ardi and half Sumatra"
       fill_in "bean[price]", with: 14.5
       fill_in "bean[status]", with: 0
-      #file_fixture_path 'test.jpg'
       click_on "Add Bean"
 
       expect(current_path).to eq(admin_beans_path)
       expect(Bean.count).to eq(1)
 
-      within ('#item-link') do    
+      within ('#item-link') do
         expect(page).to have_content("Moka Java")
       end
-      within ('#item-description') do        
+      within ('#item-description') do
         expect(page).to have_content("Compromised of half Ardi and half Sumatra")
       end
-      within ('#item-status') do    
+      within ('#item-status') do
         expect(page).to have_content("Active")
       end
   end
-end      
+end

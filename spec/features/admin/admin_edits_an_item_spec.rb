@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "an admin edits an item" do
   scenario "admin views all items and selects one to edit" do
-    bean_one = Bean.create(title:"Java", 
+    bean_one = Bean.create(title:"Java",
                             description:"fair trade",
                             price: 14.20,
                             status: 0)
@@ -26,18 +26,17 @@ describe "an admin edits an item" do
     fill_in "bean[title]", with: "Moka Java"
     fill_in "bean[description]", with: "Compromised of half Ardi and half Sumatra"
     fill_in "bean[status]", with: 0
-    #file_fixture_path 'test.jpg'
     click_on "Update Bean"
 
     expect(current_path).to eq(admin_beans_path)
 
-    within ('#item-link') do    
+    within ('#item-link') do
         expect(page).to have_content("Moka Java")
     end
-    within ('#item-description') do        
+    within ('#item-description') do
       expect(page).to have_content("Compromised of half Ardi and half Sumatra")
     end
-    within ('#item-status') do    
+    within ('#item-status') do
       expect(page).to have_content("Active")
     end
   end
