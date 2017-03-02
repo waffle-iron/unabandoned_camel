@@ -20,4 +20,10 @@ class Bean < ApplicationRecord
       self.save!
     end
   end
+
+
+  def  self.active
+    Bean.where(status: 0)
+  end
+
 end

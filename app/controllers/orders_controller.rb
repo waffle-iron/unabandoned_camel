@@ -8,7 +8,13 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id])
+    if current_user == nil || !current_user.orders.include?(Order.find(params[:id]))
+      render file: '/public/404'
+    else
+      @order = current_user.orders.find(params[:id])
+      
+      render :show
+    end
   end
 
   def index

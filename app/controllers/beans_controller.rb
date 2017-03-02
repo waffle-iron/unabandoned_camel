@@ -1,7 +1,7 @@
 class BeansController < ApplicationController
 
   def index
-    @beans = Bean.all
+    @beans = Bean.active
   end
 
   def show
