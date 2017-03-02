@@ -1,12 +1,10 @@
-require 'dragonfly'
+require 'dragonfly/s3_data_store'
 
 # Configure
 Dragonfly.app.configure do
   plugin :imagemagick
 
   secret "018f94545a56f40890077e89ddc845fb3f3a3c1b011a18c81314fdf2ec1a5a01"
-
-  url_format "/media/:job/:name"
 
   url_format "/media/:job/:name"
 
@@ -22,9 +20,6 @@ else
             url_scheme: 'https'
 end
 
-  datastore :file,
-    root_path: Rails.root.join('public/system/dragonfly', Rails.env),
-    server_root: Rails.root.join('public')
 end
 
 # Logger
