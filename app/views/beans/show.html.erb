@@ -1,25 +1,19 @@
 <h1 align = center>Abandoned Camel Coffee Mercantile</h1>
-
-<div class="container">
-  <div class="jumbotron">
+<br>
+<div class="container" >
     <div class="row">
-      <div class ="col-md-7">
+      <div class ="col-md-12">
+          <div class="thumbnail">
         <%= image_tag @bean.image.thumb('200x200').url%>
         <h2 align=center><%= @bean.title %></h2>
-          <p><%= @bean.description %></p>
-          <p id="price"><%= @bean.price %></p>
+          <p align=center><%= @bean.description %></p>
+          <p align=center id="price"><%= @bean.price %></p>
           <% if @bean.status == 0 %>
             <p align=center><%= button_to "Add Item", cart_items_path(bean_id: @bean.id),  class: "btn btn_danger"%></p>
           <% else %>
             <p align=center> Item Retired </p>
           <% end %>
         </div>
-
-
-
-      <img src="http://www.stanscoffee.com/wp-content/uploads/2014/11/coffee_bag.jpg" alt="coffee bag">
-
-
     </div>
   </div>
 </div>

@@ -2,15 +2,15 @@
   <div class = "jumbotron">
     <div class = "row">
       <div class = "col-md-7"> 
-        <h2 align=right> Add New Beans to Inventory</h2><br>
+        <h2 align="right"> Edit Bean Specifications</h2><br>
           <div class = "caption" aligin=center>
           <%= form_for [:admin, @bean] do |f|%>
-            <p align=right>Title:<%= f.text_field :title, :value => @bean.title%></p>
-            <p align=right>Description:<%= f.text_field :description, :value => @bean.description%></p>
-            <p align=right>Status(Active = 0, Retired = 1)<%= f.text_field :status, :value => @bean.status%></p>
-            <p align=right><%= f.file_field :image, :image => @bean.image%></p>
+            <p align=right>Title:<%= f.text_field :title%></p>
+            <p align=right>Description:<%= f.text_field :description%></p>
+            <p align=right>Status(Active = 0, Retired = 1)<%= f.text_field :status%></p>
+            <p align=right><%= f.file_field :image%></p>
             <h3 align=center><%= f.submit "Update Bean"%></h3></br>
-            <%= f.hidden_field :price, :value => @bean.price%>
+            <p align=right><%= f.hidden_field :price%></p>
           <% end %> </br>
         </div>
     </div>
