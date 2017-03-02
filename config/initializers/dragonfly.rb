@@ -1,23 +1,31 @@
-require 'dragonfly'
+require 'dragonfly/s3_data_store'
 
 # Configure
 Dragonfly.app.configure do
   plugin :imagemagick
 
   secret "018f94545a56f40890077e89ddc845fb3f3a3c1b011a18c81314fdf2ec1a5a01"
+  url_host 'http://aqueous-tundra-60091.herokuapp.com'
 
-  url_format "/media/:job/:name"
-
+if Rails.env.development? || Rails.env.test?
   datastore :file,
-    root_path: Rails.root.join('public/system/dragonfly', Rails.env),
-    server_root: Rails.root.join('public')
+            root_path: Rails.root.join('public/system/dragonfly', Rails.env),
+            server_root: Rails.root.join('public')
+else
+  datastore :s3,
+            bucket_name: ENV['BUCKET_NAME'],
+            access_key_id: ENV['S3_KEY'],
+            secret_access_key: ENV['S3_SECRET'],
+            url_scheme: 'https',
+            region: 'us-west-2'
+end
+
 end
 
 # Logger
 Dragonfly.logger = Rails.logger
 
 # Mount as middleware
-Rails.application.middleware.use Dragonfly::Middleware
 
 # Add model functionality
 if defined?(ActiveRecord::Base)

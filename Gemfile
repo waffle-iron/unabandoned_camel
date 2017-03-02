@@ -14,7 +14,8 @@ gem 'pg', '~> 0.18'
 
 gem 'rails_12factor', group: :production
 gem 'bootstrap-sass', '~> 3.3.6'
-
+gem 'dragonfly-s3_data_store'
+gem 'rack-cache', :require => 'rack/cache', group: :production
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
