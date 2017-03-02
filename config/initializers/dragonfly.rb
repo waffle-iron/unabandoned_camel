@@ -4,8 +4,6 @@ require 'dragonfly/s3_data_store'
 Dragonfly.app.configure do
   plugin :imagemagick
 
-  secret "018f94545a56f40890077e89ddc845fb3f3a3c1b011a18c81314fdf2ec1a5a01"
-  url_host 'http://aqueous-tundra-60091.herokuapp.com'
   url_format "/media/:job/:name"
 
 if Rails.env.development? || Rails.env.test?
@@ -17,7 +15,9 @@ else
             bucket_name: ENV['BUCKET_NAME'],
             access_key_id: ENV['S3_KEY'],
             secret_access_key: ENV['S3_SECRET'],
-            url_scheme: 'https'
+            url_scheme: 'https',
+            region: "us-west-1"
+
 end
 
 end
