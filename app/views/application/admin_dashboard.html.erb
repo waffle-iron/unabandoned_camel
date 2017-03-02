@@ -1,4 +1,5 @@
 <h1 class="admin-header">Admin Dashboard</h1><br>
+<div id="view-items"><%= link_to "View All Items", admin_beans_path%></div>
 <h4 id="view-orders-by">View Orders By:</h4>
 <div id="orders-by-status">
 <%= link_to "Ordered", admin_dashboard_path(:status_hold => "Ordered")%> |
@@ -6,7 +7,6 @@
 <%= link_to "Cancelled", admin_dashboard_path(:status_hold => "Cancelled")%> |
 <%= link_to "Completed", admin_dashboard_path(:status_hold => "Completed")%> |
 <%= link_to "All Orders", admin_dashboard_path(:status_hold => nil)%> |
-<%= link_to "View All Items", admin_beans_path%>
 </div>
 <section>
 <h3><%= @order_list_title %>:</h3>
