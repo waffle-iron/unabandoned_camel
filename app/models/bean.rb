@@ -6,18 +6,10 @@ class Bean < ApplicationRecord
   validates :price, presence: true
   has_many :bean_categories
   has_many :categories, through: :bean_categories
-  dragonfly_accessor :image
-  before_save :assign_image
+  #before_save :assign_image
 
   def subtotal(quantity)
     (price * quantity).to_i
   end
 
-  def assign_image
-    unless self.image != nil
-      i = File.open("#{Rails.root}/public/images/coffee 11.jpg")
-      self.image = i
-      self.save!
-    end
-  end
 end

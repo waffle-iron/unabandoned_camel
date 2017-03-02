@@ -17,7 +17,7 @@ class Admin::BeansController < Admin::BaseController
       redirect_to admin_beans_path
     else 
       flash[:danger] = "Failed To Add Bean. Try Again."
-      render :new
+      redirect_to new_admin_bean_path
     end
   end
 
@@ -32,7 +32,7 @@ class Admin::BeansController < Admin::BaseController
         redirect_to admin_beans_path
       else
         flash[:danger] = "Update Failed. Try Again."
-        render :edit
+        redirect_to edit_admin_bean_path(@bean)
       end
     end
   private

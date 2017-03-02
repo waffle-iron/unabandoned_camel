@@ -36,7 +36,6 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'friendly_id', '~> 5.1.0'
 
-gem 'dragonfly'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

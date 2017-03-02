@@ -83,7 +83,7 @@ end
 
 Category.all.each do |category|
   10.times do
-    category.beans.create(title: TITLE.sample, description: DESCRIPTION.sample, price: PRICE.sample, image: File.open("#{Rails.root}/public/images/#{IMAGE.sample}"))
+    category.beans.create(title: TITLE.sample, description: DESCRIPTION.sample, price: PRICE.sample, image: IMAGE.sample)
     puts "Created #{category.beans.count} beans for #{Category.name}"
   end
 end

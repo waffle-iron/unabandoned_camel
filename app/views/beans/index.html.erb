@@ -3,8 +3,7 @@
 <% @beans.each do |bean| %>
   <div class="col-sm-4 col-md-3">
     <div class="thumbnail">
-      <div class="bean_pic">
-      <%= image_tag bean.image.thumb('175x175#').url%>
+      <%= image_tag bean.image%>
     </div>
       <div class="caption">
         <h3 class="bean_stats"><%= link_to bean.title, bean_path(bean) %></h3>
