@@ -14,7 +14,7 @@ if Rails.env.development? || Rails.env.test?
             server_root: Rails.root.join('public')
 else
   datastore :s3,
-            bucket_name: camel1234,
+            bucket_name: ENV['BUCKET_NAME'],
             access_key_id: ENV['S3_KEY'],
             secret_access_key: ENV['S3_SECRET'],
             url_scheme: 'https'
