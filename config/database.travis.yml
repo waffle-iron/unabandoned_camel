@@ -1,0 +1,7 @@
+default: &default
+  adapter: postgresql
+test:
+  <<: *default
+  database: abandoned_camel_coffee_mercantile_test
+  username: travis
+  encoding: utf8
