@@ -3,7 +3,7 @@ env:
     - CC_TEST_REPORTER_ID=c4d7c987d3d77e742e4a39daa9b8c30f8b16e07eeadcc23683e71ba73afb6d12
 language: ruby
 rvm:
-  - 2.4
+  - "2.4"
 env:
   - DB=postgresql
 before_script:
@@ -13,5 +13,5 @@ before_script:
 script:
   - RAILS_ENV=test bundle exec rake db:create db:migrate --trace
   - bundle exec rspec
-  after_script:
+after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
