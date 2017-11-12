@@ -55,6 +55,7 @@ group :development, :test do
   # gem 'rails_best_practices'
   # gem 'shoulda'
   # gem 'shoulda-matchers'
+  gem 'rake'
 end
 
 group :development do
