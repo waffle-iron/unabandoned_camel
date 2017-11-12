@@ -49,13 +49,15 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
-  # gem 'pry'
-  # gem 'better_errors'
-  # gem 'binding_of_caller'
-  # gem 'rails_best_practices'
-  # gem 'shoulda'
-  # gem 'shoulda-matchers'
+  gem 'pry'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'rails_best_practices'
+  gem 'shoulda'
+  gem 'shoulda-matchers'
   gem 'rake'
+  gem "codeclimate-test-reporter", group: :test
+  gem 'simplecov', :require => false, :group => :test
 end
 
 group :development do
