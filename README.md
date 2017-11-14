@@ -1,3 +1,4 @@
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/codyborders/unabandoned_camel.png?columns=all)](https://waffle.io/codyborders/unabandoned_camel?utm_source=badge)
 # README
 
 This README would normally document whatever steps are necessary to get the
